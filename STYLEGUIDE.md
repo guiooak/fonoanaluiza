@@ -210,11 +210,18 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - **Layout:** os utilitários disponíveis são `.container`, `.section`, `.grid`, `.split`, `.stack`, `.cluster` e `.flow`. Não crie wrappers ad hoc.
 - **Estilo inline:** só para ajustar uma custom property de componente (`style="--rail-cols:3"`).
 - **Header, rodapé e localização são idênticos nas 4 páginas** (HTML duplicado, sem includes). Ao mudar um deles, replique nas outras páginas.
-- **Caminhos:** absolutos a partir da raiz (`/assets/...`), porque as páginas ficam em subpastas (`/audiometria/index.html`).
+- **Caminhos:** sempre **relativos** (`assets/...` na raiz, `../assets/...` nas subpastas; links `./`, `../`, `../#sobre`), para o site funcionar tanto no GitHub Pages (`/fonoanaluiza/`) quanto no domínio próprio. Só o `404.html` usa `<base>` dinâmico. URLs canônicas, Open Graph e JSON-LD continuam absolutos (`https://fonoanaluizadavid.com.br/...`).
 - **JS:** `assets/js/main.js`, sem dependências e com `defer`. O `<html>` recebe a classe `js` por um script inline no `<head>`, o que ativa as animações de entrada.
 - **Animação:** `data-reveal` em blocos principais (no máximo 2 ou 3 por seção). Respeita `prefers-reduced-motion`.
 
-## 10. Acessibilidade
+## 10. Publicação
+
+- **Deploy automático:** todo push na `main` dispara `.github/workflows/deploy.yml`, que publica o site no GitHub Pages (https://guiooak.github.io/fonoanaluiza/).
+- O workflow publica só os arquivos do site (HTML, `assets/`, `sitemap.xml`, `robots.txt`); `.md`, `.claude/` e `_redirects` ficam de fora.
+- O GTM só carrega no domínio `fonoanaluizadavid.com.br`, para que previews e o github.io não gerem visitas nem conversões falsas.
+- Domínio próprio: quando o DNS for apontado para o GitHub Pages, adicione o arquivo `CNAME` com `fonoanaluizadavid.com.br` e configure o domínio em Settings → Pages.
+
+## 11. Acessibilidade
 
 - Cada página tem um `<h1>` e uma hierarquia sem pular níveis.
 - O skip link "Pular para o conteúdo" é o primeiro elemento do `<body>`.
@@ -224,7 +231,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - Vídeos têm `aria-label` descritivo e iframes têm `title`.
 - O idioma é `lang="pt-BR"`.
 
-## 11. Tom de voz e texto
+## 12. Tom de voz e texto
 
 - O conteúdo do site antigo é mantido integralmente. Só corrigimos erros evidentes (crase, aspas soltas, contagem "6 passos" com 5 listados, grafia do nome).
 - O nome padrão é **Dra. Ana Luíza Martins David**. A marca gráfica (logo) segue "Ana Luiza".

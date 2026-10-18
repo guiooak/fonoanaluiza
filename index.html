@@ -19,15 +19,18 @@
   <script>document.documentElement.classList.add("js");</script>
 
   <!-- Google Tag Manager (GA4 e Google Ads são configurados dentro do GTM) -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5R4L6XV5');</script>
+  <script>/* Só carrega o GTM no domínio oficial (não em previews/GitHub Pages) */
+  if (/(^|\.)fonoanaluizadavid\.com\.br$/.test(location.hostname)) {
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5R4L6XV5');
+  }</script>
 
-  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@300;400;500;600&display=swap">
-  <link rel="preload" as="image" href="/assets/img/dra-retrato-1200.webp" imagesrcset="/assets/img/dra-retrato-640.webp 640w, /assets/img/dra-retrato-1200.webp 1200w" imagesizes="(min-width: 56rem) 30rem, 90vw">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="preload" as="image" href="assets/img/dra-retrato-1200.webp" imagesrcset="assets/img/dra-retrato-640.webp 640w, assets/img/dra-retrato-1200.webp 1200w" imagesizes="(min-width: 56rem) 30rem, 90vw">
+  <link rel="stylesheet" href="assets/css/styles.css">
 
   <script type="application/ld+json">
   {
@@ -67,52 +70,52 @@
   <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="brand" href="/" aria-label="Ana Luiza Martins David, fonoaudióloga — início">
-        <img src="/assets/img/logo-icone.png" alt="" width="540" height="308">
+      <a class="brand" href="./" aria-label="Ana Luiza Martins David, fonoaudióloga — início">
+        <img src="assets/img/logo-icone.png" alt="" width="540" height="308">
         <span class="brand__name" aria-hidden="true">Ana Luiza Martins David<small>Fonoaudióloga</small></span>
       </a>
       <nav class="nav" aria-label="Principal">
         <ul class="nav__list">
-          <li><a class="nav__link" href="/" aria-current="page">Início</a></li>
+          <li><a class="nav__link" href="./" aria-current="page">Início</a></li>
           <li class="nav__item--has-menu">
             <button class="nav__link" type="button" aria-expanded="false" aria-controls="submenu-exames">
-              Exames <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#chevron-down"/></svg>
+              Exames <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#chevron-down"/></svg>
             </button>
             <ul class="submenu" id="submenu-exames">
-              <li><a href="/audiometria/">Audiometria <span>Tonal, vocal e infantil</span></a></li>
-              <li><a href="/imitanciometria/">Imitanciometria <span>Saúde da orelha média</span></a></li>
-              <li><a href="/processamento-auditivo-central/">Processamento Auditivo Central <span>Avaliação do PAC</span></a></li>
+              <li><a href="audiometria/">Audiometria <span>Tonal, vocal e infantil</span></a></li>
+              <li><a href="imitanciometria/">Imitanciometria <span>Saúde da orelha média</span></a></li>
+              <li><a href="processamento-auditivo-central/">Processamento Auditivo Central <span>Avaliação do PAC</span></a></li>
             </ul>
           </li>
-          <li><a class="nav__link" href="/#metodo">Método ACC</a></li>
-          <li><a class="nav__link" href="/#sobre">Sobre</a></li>
-          <li><a class="nav__link" href="/#localizacao">Localização</a></li>
-          <li><a class="nav__link" href="/#agendar">Agende consulta</a></li>
+          <li><a class="nav__link" href="./#metodo">Método ACC</a></li>
+          <li><a class="nav__link" href="./#sobre">Sobre</a></li>
+          <li><a class="nav__link" href="./#localizacao">Localização</a></li>
+          <li><a class="nav__link" href="./#agendar">Agende consulta</a></li>
         </ul>
       </nav>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
-        <svg class="icon icon-open" aria-hidden="true"><use href="/assets/img/icons.svg#menu"/></svg>
-        <svg class="icon icon-close" aria-hidden="true"><use href="/assets/img/icons.svg#close"/></svg>
+        <svg class="icon icon-open" aria-hidden="true"><use href="assets/img/icons.svg#menu"/></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="assets/img/icons.svg#close"/></svg>
       </button>
     </div>
   </header>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Menu móvel">
     <ul>
-      <li><a href="/">Início</a></li>
+      <li><a href="./">Início</a></li>
       <li><span class="mobile-nav__label">Exames</span>
         <ul class="mobile-nav__sub">
-          <li><a href="/audiometria/">Audiometria</a></li>
-          <li><a href="/imitanciometria/">Imitanciometria</a></li>
-          <li><a href="/processamento-auditivo-central/">Processamento Auditivo Central</a></li>
+          <li><a href="audiometria/">Audiometria</a></li>
+          <li><a href="imitanciometria/">Imitanciometria</a></li>
+          <li><a href="processamento-auditivo-central/">Processamento Auditivo Central</a></li>
         </ul>
       </li>
-      <li><a href="/#metodo">Método ACC</a></li>
-      <li><a href="/#sobre">Sobre</a></li>
-      <li><a href="/#localizacao">Localização</a></li>
-      <li><a href="/#agendar">Agende consulta</a></li>
+      <li><a href="./#metodo">Método ACC</a></li>
+      <li><a href="./#sobre">Sobre</a></li>
+      <li><a href="./#localizacao">Localização</a></li>
+      <li><a href="./#agendar">Agende consulta</a></li>
     </ul>
     <a class="btn btn--lg btn--block" href="https://wa.me/5565998682998" data-cta="menu-mobile" target="_blank" rel="noopener">
-      <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+      <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
     </a>
   </nav>
 
@@ -128,22 +131,22 @@
           <p>Avaliamos e reabilitamos o processamento auditivo do seu filho, através de um treinamento especializado para que ele compreenda melhor as informações e tenha mais facilidade na escola e na escuta do dia a dia.</p>
           <div class="hero__actions">
             <a class="btn btn--lg" href="https://wa.me/5565998682998" data-cta="hero" target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+              <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
             </a>
-            <a class="link-arrow" href="#metodo">Conhecer o Método ACC <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></a>
+            <a class="link-arrow" href="#metodo">Conhecer o Método ACC <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg></a>
           </div>
           <p class="cta-note">Consulta particular com a especialista.</p>
         </div>
         <div class="cutout hero__media" data-reveal>
-          <img src="/assets/img/dra-retrato-1200.webp" srcset="/assets/img/dra-retrato-640.webp 640w, /assets/img/dra-retrato-1200.webp 1200w" sizes="(min-width: 56rem) 30rem, 90vw" alt="Dra. Ana Luíza Martins David, fonoaudióloga" width="1200" height="1909" fetchpriority="high">
+          <img src="assets/img/dra-retrato-1200.webp" srcset="assets/img/dra-retrato-640.webp 640w, assets/img/dra-retrato-1200.webp 1200w" sizes="(min-width: 56rem) 30rem, 90vw" alt="Dra. Ana Luíza Martins David, fonoaudióloga" width="1200" height="1909" fetchpriority="high">
         </div>
       </div>
     </section>
 
     <div class="strip">
       <div class="container cluster">
-        <span class="strip__item"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg> Atendimentos adulto e infantil presenciais em Cuiabá-MT</span>
-        <span class="strip__item"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#monitor"/></svg> Treinamentos auditivos online disponíveis para todo o Brasil</span>
+        <span class="strip__item"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#map-pin"/></svg> Atendimentos adulto e infantil presenciais em Cuiabá-MT</span>
+        <span class="strip__item"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#monitor"/></svg> Treinamentos auditivos online disponíveis para todo o Brasil</span>
       </div>
     </div>
 
@@ -155,13 +158,13 @@
           <h2>Descubra por que seu filho pode estar enfrentando dificuldades na escola</h2>
           <p class="lead">E como o Método ACC (Audição, Cognição e Comunicação) pode mudar de vez a forma como ele aprende, se comunica e se desenvolve!</p>
           <a class="btn" style="--flow-space:var(--space-8)" href="https://wa.me/5565998682998" data-cta="video" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+            <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
           </a>
         </div>
         <div data-reveal>
           <button class="video" type="button" data-vimeo="1082873009" data-hash="3ad25bc211" aria-label="Assistir ao vídeo de apresentação do Método ACC">
-            <img src="/assets/img/video-apresentacao.webp" alt="" width="667" height="375" loading="lazy">
-            <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#play"/></svg></span></span>
+            <img src="assets/img/video-apresentacao.webp" alt="" width="667" height="375" loading="lazy">
+            <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#play"/></svg></span></span>
             <span class="video__label">Método ACC · 4 min</span>
           </button>
           <p class="video-caption">Clique no vídeo e assista para entender.</p>
@@ -191,22 +194,22 @@
         </div>
         <div class="grid grid--2">
           <article class="card" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#graduation"/></svg></span>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#graduation"/></svg></span>
             <h3 class="card__title">Seu filho está com dificuldades na escola…</h3>
             <p class="card__text">Se ele tem dificuldades para entender os professores, se expressar com os colegas, acompanhar o conteúdo ou está com dificuldades para ler e escrever.</p>
           </article>
           <article class="card" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#repeat"/></svg></span>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#repeat"/></svg></span>
             <h3 class="card__title">Você sente que ele precisa que você ou as pessoas repitam várias vezes para conseguir entender…</h3>
             <p class="card__text">Se ele tem dificuldade para seguir ordens/instruções simples, realizar comandos que você deu, e fica te olhando como se não estivesse ouvindo ou prestando atenção no que é dito.</p>
           </article>
           <article class="card" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#noise"/></svg></span>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#noise"/></svg></span>
             <h3 class="card__title">Você percebe que seu filho fica “perdido”, incomodado…</h3>
             <p class="card__text">Se, em lugares com muito ruído, como restaurantes, festas ou até reuniões, ele sente dificuldades para acompanhar as conversas, fala muito “hã? o quê?”, não responde adequadamente ao que é pedido e não entende o que as pessoas falam.</p>
           </article>
           <article class="card" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#message"/></svg></span>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#message"/></svg></span>
             <h3 class="card__title">Você percebe que ele tem evitado interações porque não consegue se expressar bem…</h3>
             <p class="card__text">Se ele fica nervoso com apresentações na escola, não gosta de ler em voz alta, se irrita com facilidade quando não é compreendido, se sente inseguro ao falar e tem evitado interações com amigos, familiares ou colegas por medo de não ser compreendido.</p>
           </article>
@@ -217,11 +220,11 @@
           <div class="flow" data-reveal>
             <p class="lead">Se você percebe todas ou algumas dessas dificuldades no seu filho, pode ser a hora de investigar de perto por uma especialista da audição!</p>
             <div class="callout" style="--flow-space:var(--space-6)">
-              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#info"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#info"/></svg>
               <p>A avaliação do Processamento Auditivo pode ser o primeiro passo para melhorar o aprendizado e a comunicação do seu filho!</p>
             </div>
             <a class="btn" style="--flow-space:var(--space-8)" href="https://wa.me/5565998682998" data-cta="sinais" target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+              <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
             </a>
           </div>
         </div>
@@ -240,8 +243,8 @@
         <div class="rail" style="--rail-cols:3">
           <article class="testimonial">
             <button class="video video--vertical" type="button" data-vimeo="1090846076" data-hash="98752c123f" aria-label="Assistir ao depoimento sobre a Rafaela">
-              <img src="/assets/img/video-rafaela.webp" alt="" width="640" height="1138" loading="lazy">
-              <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#play"/></svg></span></span>
+              <img src="assets/img/video-rafaela.webp" alt="" width="640" height="1138" loading="lazy">
+              <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#play"/></svg></span></span>
             </button>
             <h3 class="testimonial__title">A Rafaela tinha trocas na escrita e leitura (T/D, V/F) e dificuldades em seguir comandos.</h3>
             <p class="testimonial__text">A Rafaela, de 10 anos, foi diagnosticada com alteração no Processamento Auditivo Central (PAC). Isso se manifestava em trocas de letras na escrita e na leitura e dificuldade em seguir comandos. Com o Método ACC, ela conseguiu superar esses desafios.</p>
@@ -249,8 +252,8 @@
           </article>
           <article class="testimonial">
             <button class="video video--vertical" type="button" data-vimeo="1090845994" data-hash="78cd6ad2b2" aria-label="Assistir ao depoimento sobre a Isadora">
-              <img src="/assets/img/video-isadora.webp" alt="" width="622" height="1104" loading="lazy">
-              <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#play"/></svg></span></span>
+              <img src="assets/img/video-isadora.webp" alt="" width="622" height="1104" loading="lazy">
+              <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#play"/></svg></span></span>
             </button>
             <h3 class="testimonial__title">A Isadora tinha falta de foco e atenção, principalmente nas atividades escolares, e suas notas eram baixas.</h3>
             <p class="testimonial__text">Isadora, de 10 anos, enfrentava dificuldades que impactavam seu desempenho escolar. Com o Método ACC, ela desenvolveu habilidades, aprendeu de forma mais eficiente e suas notas melhoraram significativamente.</p>
@@ -258,8 +261,8 @@
           </article>
           <article class="testimonial">
             <button class="video video--vertical" type="button" data-vimeo="1090846022" data-hash="1fa39907be" aria-label="Assistir ao depoimento sobre a Thalita">
-              <img src="/assets/img/video-thalita.webp" alt="" width="640" height="1138" loading="lazy">
-              <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#play"/></svg></span></span>
+              <img src="assets/img/video-thalita.webp" alt="" width="640" height="1138" loading="lazy">
+              <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#play"/></svg></span></span>
             </button>
             <h3 class="testimonial__title">Falta de foco, esquecimento e dificuldade de compreensão eram os desafios de Thalita.</h3>
             <p class="testimonial__text">Thalita chegou buscando ajuda para problemas que afetavam sua rotina: esquecimento constante, dificuldade em manter o foco e em entender informações complexas. O Método ACC foi essencial para sua melhora.</p>
@@ -284,7 +287,7 @@
           <p class="lead" data-reveal>Assim como eles, você também pode ver seu filho superar suas dificuldades, melhorar seu desempenho e resultados na escola, recuperar a confiança para viver, estudar e se comunicar em qualquer ambiente.</p>
           <div data-reveal>
             <a class="btn btn--lg" href="https://wa.me/5565998682998" data-cta="depoimentos" target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+              <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
             </a>
           </div>
         </div>
@@ -295,7 +298,7 @@
     <section class="section" id="acc-conecta">
       <div class="container split">
         <div class="media media--portrait" data-reveal>
-          <img src="/assets/img/dra-paciente-960.webp" srcset="/assets/img/dra-paciente-640.webp 640w, /assets/img/dra-paciente-960.webp 960w" sizes="(min-width: 56rem) 45vw, 90vw" alt="Dra. Ana Luíza em sessão de treinamento auditivo com uma criança" width="960" height="1375" loading="lazy">
+          <img src="assets/img/dra-paciente-960.webp" srcset="assets/img/dra-paciente-640.webp 640w, assets/img/dra-paciente-960.webp 960w" sizes="(min-width: 56rem) 45vw, 90vw" alt="Dra. Ana Luíza em sessão de treinamento auditivo com uma criança" width="960" height="1375" loading="lazy">
         </div>
         <div class="flow" data-reveal>
           <span class="eyebrow">Atenção, mãe</span>
@@ -320,11 +323,11 @@
         <div class="card" data-reveal>
           <h3 class="card__title">O que o Método ACC faz?</h3>
           <ul class="checklist">
-            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Avalia e identifica as dificuldades auditivas específicas do seu filho.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Estimula habilidades essenciais para uma escuta eficaz e ativa.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Melhora a compreensão da fala, a atenção e o desempenho escolar.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg><span>Avalia e identifica as dificuldades auditivas específicas do seu filho.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg><span>Estimula habilidades essenciais para uma escuta eficaz e ativa.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg><span>Melhora a compreensão da fala, a atenção e o desempenho escolar.</span></li>
           </ul>
-          <p class="highlight"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#trending-up"/></svg> Em até 3 meses, você verá resultados reais no dia a dia!</p>
+          <p class="highlight"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#trending-up"/></svg> Em até 3 meses, você verá resultados reais no dia a dia!</p>
         </div>
       </div>
     </section>
@@ -357,18 +360,18 @@
         </div>
         <div class="grid grid--3">
           <article class="card card--flat" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#clock"/></svg></span>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#clock"/></svg></span>
             <h3 class="card__title">Respeitamos o seu tempo!</h3>
             <p class="card__text">Contamos com uma infraestrutura moderna e com os recursos necessários para atender você e sua família com excelência, e oferecemos um ambiente onde a escuta empática e o cuidado e carinho são parte essencial de todo o processo pelo qual irão passar. Nossa equipe de profissionais qualificados está pronta para ajudar você a alcançar os resultados desejados, com carinho e respeito.</p>
           </article>
           <article class="card card--flat" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#credit-card"/></svg></span>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#credit-card"/></svg></span>
             <h3 class="card__title">Pagamento facilitado no cartão de crédito</h3>
             <p class="card__text">Pensando no seu conforto, também oferecemos a opção de pagamento facilitado no cartão de crédito. Você pode parcelar o valor da avaliação em até 3x sem juros e o valor das sessões de protocolo em até 10x sem juros, ou escolher uma forma que melhor se encaixe no seu orçamento.</p>
             <p class="card__text">Aceitamos todos os cartões de crédito principais, garantindo mais praticidade e segurança para você. Caso tenha dúvidas sobre as condições, nossa equipe está à disposição para esclarecer!</p>
           </article>
           <article class="card card--flat" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#shield-check"/></svg></span>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield-check"/></svg></span>
             <h3 class="card__title">Sua confiança é nossa prioridade!</h3>
             <p class="card__text">Garantimos que seu processo de atendimento será conduzido com seriedade, profissionalismo e dedicação. Se, por qualquer motivo, você não estiver satisfeito com o atendimento, nos comprometemos a buscar alternativas para atender suas necessidades da melhor maneira possível.</p>
             <p class="card__text">A nossa missão é proporcionar um serviço de qualidade e sinceridade que traga reais transformações para sua vida. Acreditamos tanto no nosso trabalho que oferecemos a garantia de que você verá resultados positivos com o nosso acompanhamento auditivo. Se não ficar satisfeito, vamos trabalhar juntos para corrigir e ajustar até atingir o que você espera em relação ao serviço fonoaudiológico.</p>
@@ -386,47 +389,47 @@
         </div>
         <div class="reviews" data-reveal>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Gostei muito do atendimento da profissional Ana Luiza David, bem como das meninas na recepção. Todos muito cordiais e acolhedores.</p></blockquote>
             <figcaption class="review__author"><strong>Tâmara Silva</strong><span>Avaliação no Google · <time datetime="2025-04-15">15/04/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Maravilhosa! Sanou todas minhas necessidades!!</p></blockquote>
             <figcaption class="review__author"><strong>Lucas Regenold</strong><span>Avaliação no Google · <time datetime="2025-03-19">19/03/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Sou mãe de um paciente e só tenho gratidão pelo trabalho incrível da Ana! 💙 Seu conhecimento e dedicação no processamento auditivo fizeram toda a diferença para o desenvolvimento do meu filho. Além de ser uma profissional extremamente qualificada, seu carinho e atenção nos acolhem em cada sessão. Recomendo de olhos fechados!</p></blockquote>
             <figcaption class="review__author"><strong>Gabi Lataro</strong><span>Avaliação no Google · <time datetime="2025-03-14">14/03/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Excelente atendimento. Muita atenciosa</p></blockquote>
             <figcaption class="review__author"><strong>Simone Ebel</strong><span>Avaliação no Google · <time datetime="2025-03-14">14/03/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Atendimento impecável minha filha adorou fazer a avaliação do processamento auditivo com a fono Ana David. Super recomendo!</p></blockquote>
             <figcaption class="review__author"><strong>Gabriela Remesso</strong><span>Avaliação no Google · <time datetime="2025-03-13">13/03/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Que experiência incrível ser atendida pela Ana. Muito compromisso e profissionalismo!</p></blockquote>
             <figcaption class="review__author"><strong>Isabella</strong><span>Avaliação no Google · <time datetime="2025-03-13">13/03/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Excelente profissional! Competente e atualizada. Recomendo</p></blockquote>
             <figcaption class="review__author"><strong>Juliana Tagliatela</strong><span>Avaliação no Google · <time datetime="2025-03-13">13/03/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Adorei o atendimento, minha filha ficou super confortável durante os exames!! Ambiente aconchegante e uma excelente profissional.</p></blockquote>
             <figcaption class="review__author"><strong>Gabriela Mantelli</strong><span>Avaliação no Google · <time datetime="2025-02-12">12/02/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Ótima profissional, atenciosa e eficiente. Cumpre o horário agendado. Consulta excelente</p></blockquote>
             <figcaption class="review__author"><strong>Caroline Lima</strong><span>Avaliação no Google · <time datetime="2025-02-12">12/02/2025</time></span></figcaption>
           </figure>
@@ -438,7 +441,7 @@
     <section class="section section--dark" id="sobre">
       <div class="container split split--top">
         <div class="media media--portrait media--top media--fade is-sticky" data-reveal>
-          <img src="/assets/img/dra-hero-1080.webp" srcset="/assets/img/dra-hero-640.webp 640w, /assets/img/dra-hero-1080.webp 1080w" sizes="(min-width: 56rem) 45vw, 90vw" alt="Retrato da Dra. Ana Luíza Martins David no consultório" width="1080" height="1920" loading="lazy">
+          <img src="assets/img/dra-hero-1080.webp" srcset="assets/img/dra-hero-640.webp 640w, assets/img/dra-hero-1080.webp 1080w" sizes="(min-width: 56rem) 45vw, 90vw" alt="Retrato da Dra. Ana Luíza Martins David no consultório" width="1080" height="1920" loading="lazy">
         </div>
         <div class="flow" data-reveal>
           <span class="eyebrow">Quem é a Dra.</span>
@@ -465,7 +468,7 @@
           <div class="card card--flat">
             <h3 class="card__title">Ainda com dúvidas?</h3>
             <p class="card__text">Se ainda ficou com alguma dúvida, clique no botão abaixo. Estou à disposição para te ajudar!</p>
-            <div><a class="btn" href="https://wa.me/5565998682998" data-cta="faq" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Falar no WhatsApp</a></div>
+            <div><a class="btn" href="https://wa.me/5565998682998" data-cta="faq" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg> Falar no WhatsApp</a></div>
           </div>
         </div>
         <div class="faq" data-reveal>
@@ -502,22 +505,22 @@
             <h2>Agende sua consulta</h2>
             <p class="lead">Atendimento de segunda a sexta-feira, das 8h às 11h e das 13h às 17h.</p>
             <a class="btn" style="--flow-space:var(--space-8)" href="https://wa.me/5565998682998" data-cta="localizacao" target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+              <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
             </a>
           </div>
           <div class="stack" style="--stack-gap:var(--space-4)">
             <h3 class="h4">Contato</h3>
             <ul class="contact-list">
-              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg><span>CEDAP — Av. Haiti, 436, Jardim das Américas, Cuiabá/MT</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg><a href="mailto:fonoanaluizadavid@gmail.com">fonoanaluizadavid@gmail.com</a></li>
-              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg><a href="https://wa.me/5565998682998" data-cta="contato" target="_blank" rel="noopener">(65) 99868-2998</a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#map-pin"/></svg><span>CEDAP — Av. Haiti, 436, Jardim das Américas, Cuiabá/MT</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg><a href="mailto:fonoanaluizadavid@gmail.com">fonoanaluizadavid@gmail.com</a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg><a href="https://wa.me/5565998682998" data-cta="contato" target="_blank" rel="noopener">(65) 99868-2998</a></li>
             </ul>
           </div>
           <div class="stack" style="--stack-gap:var(--space-4)">
             <h3 class="h4">Acompanhe</h3>
             <div class="social">
-              <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
-              <a href="https://wa.me/5565998682998" aria-label="WhatsApp" data-cta="social" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg></a>
+              <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#instagram"/></svg></a>
+              <a href="https://wa.me/5565998682998" aria-label="WhatsApp" data-cta="social" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg></a>
             </div>
           </div>
         </div>
@@ -526,8 +529,8 @@
             <iframe title="Mapa: Fono Ana Luíza David, Av. Haiti, 436, Cuiabá" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3842.680730217445!2d-56.0730152!3d-15.6086979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93763531236e9037%3A0xf16568c66f29810c!2sFono%20Ana%20David%20%7C%20Audiologia%20%7C%20Processamento%20Auditivo%20%7C%20Treinamento%20Auditivo!5e0!3m2!1spt-BR!2sbr!4v1749219478955!5m2!1spt-BR!2sbr"></iframe>
           </div>
           <button class="video" type="button" data-vimeo="1085682696" aria-label="Assistir ao vídeo: como chegar ao consultório">
-            <img src="/assets/img/video-localizacao.webp" alt="" width="640" height="360" loading="lazy">
-            <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#play"/></svg></span></span>
+            <img src="assets/img/video-localizacao.webp" alt="" width="640" height="360" loading="lazy">
+            <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#play"/></svg></span></span>
             <span class="video__label">Como chegar</span>
           </button>
         </div>
@@ -542,7 +545,7 @@
           <h2>Você ou quem você ama não precisa mais viver com dificuldades de comunicação e audição!</h2>
           <p>Não espere mais para buscar ajuda e melhorar a sua qualidade de vida. Cada dia que passa é um dia a mais lidando com essas dificuldades sem uma solução.</p>
           <a class="btn btn--lg" href="https://wa.me/5565998682998" data-cta="cta-final" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+            <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
           </a>
         </div>
       </div>
@@ -554,8 +557,8 @@
     <div class="container">
       <div class="site-footer__grid">
         <div>
-          <a class="brand brand--light" href="/" aria-label="Ana Luiza Martins David, fonoaudióloga — início">
-            <img src="/assets/img/logo-icone-branco.png" alt="" width="540" height="308" loading="lazy">
+          <a class="brand brand--light" href="./" aria-label="Ana Luiza Martins David, fonoaudióloga — início">
+            <img src="assets/img/logo-icone-branco.png" alt="" width="540" height="308" loading="lazy">
             <span class="brand__name" aria-hidden="true">Ana Luiza Martins David<small>Fonoaudióloga</small></span>
           </a>
           <p>Atendimentos adulto e infantil presenciais em Cuiabá-MT e treinamentos auditivos online disponíveis para todo o Brasil.</p>
@@ -563,9 +566,9 @@
         <div>
           <h2>Exames</h2>
           <ul class="stack" role="list" style="--stack-gap:var(--space-2)">
-            <li><a href="/audiometria/">Audiometria</a></li>
-            <li><a href="/imitanciometria/">Imitanciometria</a></li>
-            <li><a href="/processamento-auditivo-central/">Processamento Auditivo Central</a></li>
+            <li><a href="audiometria/">Audiometria</a></li>
+            <li><a href="imitanciometria/">Imitanciometria</a></li>
+            <li><a href="processamento-auditivo-central/">Processamento Auditivo Central</a></li>
           </ul>
         </div>
         <div>
@@ -576,7 +579,7 @@
             <li>CEDAP — Av. Haiti, 436, Jardim das Américas, Cuiabá/MT</li>
           </ul>
           <div class="social mt-6">
-            <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
+            <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#instagram"/></svg></a>
           </div>
         </div>
       </div>
@@ -588,9 +591,9 @@
   </footer>
 
   <a class="wa-float" href="https://wa.me/5565998682998" aria-label="Conversar no WhatsApp" data-cta="flutuante" target="_blank" rel="noopener">
-    <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg>
+    <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg>
   </a>
 
-  <script src="/assets/js/main.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

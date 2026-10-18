@@ -19,14 +19,17 @@
   <script>document.documentElement.classList.add("js");</script>
 
   <!-- Google Tag Manager (GA4 e Google Ads são configurados dentro do GTM) -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5R4L6XV5');</script>
+  <script>/* Só carrega o GTM no domínio oficial (não em previews/GitHub Pages) */
+  if (/(^|\.)fonoanaluizadavid\.com\.br$/.test(location.hostname)) {
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5R4L6XV5');
+  }</script>
 
-  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@300;400;500;600&display=swap">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 
   <script type="application/ld+json">
   {
@@ -58,52 +61,52 @@
   <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="brand" href="/" aria-label="Ana Luiza Martins David, fonoaudióloga — início">
-        <img src="/assets/img/logo-icone.png" alt="" width="540" height="308">
+      <a class="brand" href="../" aria-label="Ana Luiza Martins David, fonoaudióloga — início">
+        <img src="../assets/img/logo-icone.png" alt="" width="540" height="308">
         <span class="brand__name" aria-hidden="true">Ana Luiza Martins David<small>Fonoaudióloga</small></span>
       </a>
       <nav class="nav" aria-label="Principal">
         <ul class="nav__list">
-          <li><a class="nav__link" href="/">Início</a></li>
+          <li><a class="nav__link" href="../">Início</a></li>
           <li class="nav__item--has-menu">
             <button class="nav__link is-active" type="button" aria-expanded="false" aria-controls="submenu-exames">
-              Exames <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#chevron-down"/></svg>
+              Exames <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#chevron-down"/></svg>
             </button>
             <ul class="submenu" id="submenu-exames">
-              <li><a href="/audiometria/" aria-current="page">Audiometria <span>Tonal, vocal e infantil</span></a></li>
-              <li><a href="/imitanciometria/">Imitanciometria <span>Saúde da orelha média</span></a></li>
-              <li><a href="/processamento-auditivo-central/">Processamento Auditivo Central <span>Avaliação do PAC</span></a></li>
+              <li><a href="../audiometria/" aria-current="page">Audiometria <span>Tonal, vocal e infantil</span></a></li>
+              <li><a href="../imitanciometria/">Imitanciometria <span>Saúde da orelha média</span></a></li>
+              <li><a href="../processamento-auditivo-central/">Processamento Auditivo Central <span>Avaliação do PAC</span></a></li>
             </ul>
           </li>
-          <li><a class="nav__link" href="/#metodo">Método ACC</a></li>
-          <li><a class="nav__link" href="/#sobre">Sobre</a></li>
-          <li><a class="nav__link" href="/#localizacao">Localização</a></li>
+          <li><a class="nav__link" href="../#metodo">Método ACC</a></li>
+          <li><a class="nav__link" href="../#sobre">Sobre</a></li>
+          <li><a class="nav__link" href="../#localizacao">Localização</a></li>
           <li><a class="nav__link" href="#agendar">Agende consulta</a></li>
         </ul>
       </nav>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
-        <svg class="icon icon-open" aria-hidden="true"><use href="/assets/img/icons.svg#menu"/></svg>
-        <svg class="icon icon-close" aria-hidden="true"><use href="/assets/img/icons.svg#close"/></svg>
+        <svg class="icon icon-open" aria-hidden="true"><use href="../assets/img/icons.svg#menu"/></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="../assets/img/icons.svg#close"/></svg>
       </button>
     </div>
   </header>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Menu móvel">
     <ul>
-      <li><a href="/">Início</a></li>
+      <li><a href="../">Início</a></li>
       <li><span class="mobile-nav__label">Exames</span>
         <ul class="mobile-nav__sub">
-          <li><a href="/audiometria/" aria-current="page">Audiometria</a></li>
-          <li><a href="/imitanciometria/">Imitanciometria</a></li>
-          <li><a href="/processamento-auditivo-central/">Processamento Auditivo Central</a></li>
+          <li><a href="../audiometria/" aria-current="page">Audiometria</a></li>
+          <li><a href="../imitanciometria/">Imitanciometria</a></li>
+          <li><a href="../processamento-auditivo-central/">Processamento Auditivo Central</a></li>
         </ul>
       </li>
-      <li><a href="/#metodo">Método ACC</a></li>
-      <li><a href="/#sobre">Sobre</a></li>
-      <li><a href="/#localizacao">Localização</a></li>
+      <li><a href="../#metodo">Método ACC</a></li>
+      <li><a href="../#sobre">Sobre</a></li>
+      <li><a href="../#localizacao">Localização</a></li>
       <li><a href="#agendar">Agende consulta</a></li>
     </ul>
     <a class="btn btn--lg btn--block" href="https://wa.me/5565998682998" data-cta="menu-mobile" target="_blank" rel="noopener">
-      <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+      <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
     </a>
   </nav>
 
@@ -115,7 +118,7 @@
         <div class="hero__content" data-reveal>
           <nav class="breadcrumb" aria-label="Você está em">
             <ol>
-              <li><a href="/">Início</a></li>
+              <li><a href="../">Início</a></li>
               <li>Exames</li>
               <li><span aria-current="page">Audiometria</span></li>
             </ol>
@@ -126,22 +129,22 @@
           <p>A audiometria tonal é um exame que testa sua audição. Ele verifica qual é o som mais baixo que você consegue ouvir em diferentes tipos de som, como os tons mais agudos e os mais graves, em diferentes frequências.</p>
           <div class="hero__actions">
             <a class="btn btn--lg" href="https://wa.me/5565998682998" target="_blank" rel="noopener" data-cta="hero">
-              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+              <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
             </a>
-            <a class="link-arrow" href="#como-e-feito">Como é feito o exame <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></a>
+            <a class="link-arrow" href="#como-e-feito">Como é feito o exame <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#arrow-right"/></svg></a>
           </div>
           <p class="cta-note">Consulta particular com a especialista.</p>
         </div>
         <div class="media media--portrait hero__media" data-reveal>
-          <img src="/assets/img/dra-paciente-960.webp" srcset="/assets/img/dra-paciente-640.webp 640w, /assets/img/dra-paciente-960.webp 960w" sizes="(min-width: 56rem) 30rem, 90vw" alt="Dra. Ana Luíza em atendimento com uma criança usando fones de ouvido" width="960" height="1375" fetchpriority="high">
+          <img src="../assets/img/dra-paciente-960.webp" srcset="../assets/img/dra-paciente-640.webp 640w, ../assets/img/dra-paciente-960.webp 960w" sizes="(min-width: 56rem) 30rem, 90vw" alt="Dra. Ana Luíza em atendimento com uma criança usando fones de ouvido" width="960" height="1375" fetchpriority="high">
         </div>
       </div>
     </section>
 
     <div class="strip">
       <div class="container cluster">
-        <span class="strip__item"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg> Atendimentos adulto e infantil presenciais em Cuiabá-MT</span>
-        <span class="strip__item"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#monitor"/></svg> Treinamentos auditivos online disponíveis para todo o Brasil</span>
+        <span class="strip__item"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#map-pin"/></svg> Atendimentos adulto e infantil presenciais em Cuiabá-MT</span>
+        <span class="strip__item"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#monitor"/></svg> Treinamentos auditivos online disponíveis para todo o Brasil</span>
       </div>
     </div>
 
@@ -154,10 +157,10 @@
         </div>
         <div class="card" data-reveal>
           <ul class="checklist">
-            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Se você tem dificuldade para ouvir sons em ambientes barulhentos.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Se precisa pedir para repetir o que foi dito com frequência.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Se percebe que alguns sons estão mais fracos ou diferentes do que antes.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Se você sente que tem zumbido, apitos, abelhas ou barulho de cachoeira no ouvido.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg><span>Se você tem dificuldade para ouvir sons em ambientes barulhentos.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg><span>Se precisa pedir para repetir o que foi dito com frequência.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg><span>Se percebe que alguns sons estão mais fracos ou diferentes do que antes.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg><span>Se você sente que tem zumbido, apitos, abelhas ou barulho de cachoeira no ouvido.</span></li>
           </ul>
         </div>
       </div>
@@ -175,7 +178,7 @@
           <p>Nesse processo, a criança responde aos estímulos auditivos (semelhantes aos da audiometria tonal do adulto) de maneira lúdica, como dando “comida para o bichinho” ou encaixando pecinhas de LEGO.</p>
           <p>Ela entrará na cabine, colocará os fones de ouvido e, a partir daí, responderá aos estímulos auditivos.</p>
           <div class="callout" style="--flow-space:var(--space-6)">
-            <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#info"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#info"/></svg>
             <p>Dessa forma, conseguiremos avaliar o quanto ela ouve, se há ou não perda auditiva e, se necessário, encaminhá-la para o médico otorrinolaringologista, com o objetivo de definir o melhor tratamento.</p>
           </div>
         </div>
@@ -219,7 +222,7 @@
           <h2>Se você ou alguém da sua família está com dificuldades auditivas, é importante fazer esses exames.</h2>
           <p>Eles ajudam a identificar o que está acontecendo e a tomar as melhores decisões para melhorar sua audição e comunicação.</p>
           <a class="btn btn--lg" href="https://wa.me/5565998682998" target="_blank" rel="noopener" data-cta="cta-final">
-            <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+            <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
           </a>
         </div>
       </div>
@@ -234,22 +237,22 @@
         </div>
         <div class="reviews" data-reveal>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Adorei o atendimento, minha filha ficou super confortável durante os exames!! Ambiente aconchegante e uma excelente profissional.</p></blockquote>
             <figcaption class="review__author"><strong>Gabriela Mantelli</strong><span>Avaliação no Google · <time datetime="2025-02-12">12/02/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Atendimento impecável minha filha adorou fazer a avaliação do processamento auditivo com a fono Ana David. Super recomendo!</p></blockquote>
             <figcaption class="review__author"><strong>Gabriela Remesso</strong><span>Avaliação no Google · <time datetime="2025-03-13">13/03/2025</time></span></figcaption>
           </figure>
           <figure class="card review">
-            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#star"/></svg></div>
+            <div class="review__stars" role="img" aria-label="5 de 5 estrelas"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#star"/></svg></div>
             <blockquote class="review__text"><p>Gostei muito do atendimento da profissional Ana Luiza David, bem como das meninas na recepção. Todos muito cordiais e acolhedores.</p></blockquote>
             <figcaption class="review__author"><strong>Tâmara Silva</strong><span>Avaliação no Google · <time datetime="2025-04-15">15/04/2025</time></span></figcaption>
           </figure>
         </div>
-        <a class="link-arrow mt-6" href="/#avaliacoes">Ver todas as avaliações <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></a>
+        <a class="link-arrow mt-6" href="../#avaliacoes">Ver todas as avaliações <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#arrow-right"/></svg></a>
       </div>
     </section>
 
@@ -264,7 +267,7 @@
         <div class="flow" data-reveal>
           <p>Atendo desde crianças até a melhor idade, ajudando cada pessoa a escutar melhor, compreender melhor e viver melhor. A cada sessão, trabalhamos juntos para fortalecer sua escuta, sua atenção e sua comunicação, refletindo em ganhos reais no dia a dia.</p>
           <p class="quote" style="--flow-space:var(--space-8)">Cada pequena conquista que você tem é uma grande vitória para mim!</p>
-          <a class="link-arrow" style="--flow-space:var(--space-8)" href="/#sobre">Conheça a trajetória da Dra. Ana Luíza <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></a>
+          <a class="link-arrow" style="--flow-space:var(--space-8)" href="../#sobre">Conheça a trajetória da Dra. Ana Luíza <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#arrow-right"/></svg></a>
         </div>
       </div>
     </section>
@@ -277,23 +280,23 @@
           <h2>Outros exames e tratamentos</h2>
         </div>
         <div class="grid grid--3">
-          <a class="card card--interactive" href="/imitanciometria/" style="text-decoration:none" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#ear"/></svg></span>
+          <a class="card card--interactive" href="../imitanciometria/" style="text-decoration:none" data-reveal>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#ear"/></svg></span>
             <h3 class="card__title">Imitanciometria</h3>
             <p class="card__text">Um teste rápido para ver como o tímpano e a orelha média reagem aos sons.</p>
-            <span class="link-arrow">Saiba mais <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></span>
+            <span class="link-arrow">Saiba mais <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#arrow-right"/></svg></span>
           </a>
-          <a class="card card--interactive" href="/processamento-auditivo-central/" style="text-decoration:none" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#noise"/></svg></span>
+          <a class="card card--interactive" href="../processamento-auditivo-central/" style="text-decoration:none" data-reveal>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#noise"/></svg></span>
             <h3 class="card__title">Processamento Auditivo Central</h3>
             <p class="card__text">Analisa como o seu cérebro processa os sons que chegam aos seus ouvidos.</p>
-            <span class="link-arrow">Saiba mais <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></span>
+            <span class="link-arrow">Saiba mais <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#arrow-right"/></svg></span>
           </a>
-          <a class="card card--interactive" href="/#metodo" style="text-decoration:none" data-reveal>
-            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#trending-up"/></svg></span>
+          <a class="card card--interactive" href="../#metodo" style="text-decoration:none" data-reveal>
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#trending-up"/></svg></span>
             <h3 class="card__title">Método ACC</h3>
             <p class="card__text">Treinamento auditivo personalizado para escutar, compreender e se comunicar melhor.</p>
-            <span class="link-arrow">Conhecer o método <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></span>
+            <span class="link-arrow">Conhecer o método <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#arrow-right"/></svg></span>
           </a>
         </div>
       </div>
@@ -309,22 +312,22 @@
             <h2>Agende sua consulta</h2>
             <p class="lead">Atendimento de segunda a sexta-feira, das 8h às 11h e das 13h às 17h.</p>
             <a class="btn" style="--flow-space:var(--space-8)" href="https://wa.me/5565998682998" data-cta="localizacao" target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+              <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
             </a>
           </div>
           <div class="stack" style="--stack-gap:var(--space-4)">
             <h3 class="h4">Contato</h3>
             <ul class="contact-list">
-              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg><span>CEDAP — Av. Haiti, 436, Jardim das Américas, Cuiabá/MT</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg><a href="mailto:fonoanaluizadavid@gmail.com">fonoanaluizadavid@gmail.com</a></li>
-              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg><a href="https://wa.me/5565998682998" data-cta="contato" target="_blank" rel="noopener">(65) 99868-2998</a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#map-pin"/></svg><span>CEDAP — Av. Haiti, 436, Jardim das Américas, Cuiabá/MT</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#mail"/></svg><a href="mailto:fonoanaluizadavid@gmail.com">fonoanaluizadavid@gmail.com</a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#whatsapp"/></svg><a href="https://wa.me/5565998682998" data-cta="contato" target="_blank" rel="noopener">(65) 99868-2998</a></li>
             </ul>
           </div>
           <div class="stack" style="--stack-gap:var(--space-4)">
             <h3 class="h4">Acompanhe</h3>
             <div class="social">
-              <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
-              <a href="https://wa.me/5565998682998" aria-label="WhatsApp" data-cta="social" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg></a>
+              <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#instagram"/></svg></a>
+              <a href="https://wa.me/5565998682998" aria-label="WhatsApp" data-cta="social" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#whatsapp"/></svg></a>
             </div>
           </div>
         </div>
@@ -333,8 +336,8 @@
             <iframe title="Mapa: Fono Ana Luíza David, Av. Haiti, 436, Cuiabá" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3842.680730217445!2d-56.0730152!3d-15.6086979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93763531236e9037%3A0xf16568c66f29810c!2sFono%20Ana%20David%20%7C%20Audiologia%20%7C%20Processamento%20Auditivo%20%7C%20Treinamento%20Auditivo!5e0!3m2!1spt-BR!2sbr!4v1749219478955!5m2!1spt-BR!2sbr"></iframe>
           </div>
           <button class="video" type="button" data-vimeo="1085682696" aria-label="Assistir ao vídeo: como chegar ao consultório">
-            <img src="/assets/img/video-localizacao.webp" alt="" width="640" height="360" loading="lazy">
-            <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#play"/></svg></span></span>
+            <img src="../assets/img/video-localizacao.webp" alt="" width="640" height="360" loading="lazy">
+            <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#play"/></svg></span></span>
             <span class="video__label">Como chegar</span>
           </button>
         </div>
@@ -348,8 +351,8 @@
     <div class="container">
       <div class="site-footer__grid">
         <div>
-          <a class="brand brand--light" href="/" aria-label="Ana Luiza Martins David, fonoaudióloga — início">
-            <img src="/assets/img/logo-icone-branco.png" alt="" width="540" height="308" loading="lazy">
+          <a class="brand brand--light" href="../" aria-label="Ana Luiza Martins David, fonoaudióloga — início">
+            <img src="../assets/img/logo-icone-branco.png" alt="" width="540" height="308" loading="lazy">
             <span class="brand__name" aria-hidden="true">Ana Luiza Martins David<small>Fonoaudióloga</small></span>
           </a>
           <p>Atendimentos adulto e infantil presenciais em Cuiabá-MT e treinamentos auditivos online disponíveis para todo o Brasil.</p>
@@ -357,9 +360,9 @@
         <div>
           <h2>Exames</h2>
           <ul class="stack" role="list" style="--stack-gap:var(--space-2)">
-            <li><a href="/audiometria/">Audiometria</a></li>
-            <li><a href="/imitanciometria/">Imitanciometria</a></li>
-            <li><a href="/processamento-auditivo-central/">Processamento Auditivo Central</a></li>
+            <li><a href="../audiometria/">Audiometria</a></li>
+            <li><a href="../imitanciometria/">Imitanciometria</a></li>
+            <li><a href="../processamento-auditivo-central/">Processamento Auditivo Central</a></li>
           </ul>
         </div>
         <div>
@@ -370,7 +373,7 @@
             <li>CEDAP — Av. Haiti, 436, Jardim das Américas, Cuiabá/MT</li>
           </ul>
           <div class="social mt-6">
-            <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
+            <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#instagram"/></svg></a>
           </div>
         </div>
       </div>
@@ -382,9 +385,9 @@
   </footer>
 
   <a class="wa-float" href="https://wa.me/5565998682998" aria-label="Conversar no WhatsApp" data-cta="flutuante" target="_blank" rel="noopener">
-    <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg>
+    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#whatsapp"/></svg>
   </a>
 
-  <script src="/assets/js/main.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
 </body>
 </html>
