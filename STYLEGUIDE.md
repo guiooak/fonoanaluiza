@@ -118,7 +118,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 ### Botões
 - `.btn`: primário esmeralda (creme em fundo navy), rótulo **"Agendar consulta"**. Ele substitui "AGENDAR CONSULTA PARTICULAR COM A ESPECIALISTA".
-- `.btn--lg`: hero e CTA de fechamento. `.btn--sm`: usos pontuais (ex.: demos). `.btn--block`: menu mobile.
+- `.btn--lg`: hero e CTA de fechamento. `.btn--sm`: usos pontuais (ex.: demos). `.btn--block`: botão de largura total, quando necessário.
 - `.btn--secondary`: contorno `#7A8399` (≥3:1 contra o fundo), ação alternativa ("Conhecer o Método ACC"). Fica no máximo um por grupo e sempre ao lado de um primário.
 - `.link-arrow`: navegação para outra página ou seção ("Saiba mais →").
 - Use o ícone do WhatsApp **só** em botões que abrem o WhatsApp.
@@ -193,7 +193,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 ### Header / navegação
 - Header sticky com blur. Ganha borda ao rolar (`.is-scrolled`, via JS).
 - A marca (`.brand`) combina o ícone do logo com o nome em Sora e "Fonoaudióloga" em Inter caixa alta.
-- Menu desktop: Início · Exames (dropdown) · Método ACC · Sobre · Localização · Agende consulta (→ `/#agendar`, a chamada final), **alinhado à direita** e sem botão de CTA no header (o agendamento fica no botão flutuante e nos CTAs do corpo). No menu mobile, o botão "Agendar consulta" aparece ao fim da lista.
+- Menu desktop: Início · Exames (dropdown) · Método ACC · Sobre · Localização · Agende consulta (→ `/#agendar`, a chamada final), **alinhado à direita** e sem botão de CTA no header (o agendamento fica no botão flutuante e nos CTAs do corpo). O menu mobile lista os mesmos itens, terminando em "Agende consulta" (sem botão de WhatsApp).
 - Abaixo de 1024px vira hambúrguer com painel em tela cheia (`.mobile-nav`), onde "Exames" é rótulo de grupo (`.mobile-nav__label`), não link.
 - Marque a página atual com `aria-current="page"` no link.
 
