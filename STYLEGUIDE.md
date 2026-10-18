@@ -232,7 +232,9 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - **Deploy automático:** todo push na `main` dispara `.github/workflows/deploy.yml`, que publica o site no GitHub Pages (https://guiooak.github.io/fonoanaluiza/).
 - O workflow publica só os arquivos do site (HTML, `assets/`, `sitemap.xml`, `robots.txt`); `.md`, `.claude/` e `_redirects` ficam de fora.
 - O GTM só carrega no domínio `fonoanaluizadavid.com.br` **e após o consentimento**, para que previews e o github.io não gerem visitas nem conversões falsas.
-- **Cartão de compartilhamento**: `assets/img/og-cover.jpg` (1200×630, JPG), usado por WhatsApp, Facebook, LinkedIn e X via Open Graph (`og:image` + dimensões + `og:image:alt`) e `twitter:card=summary_large_image`. Título e descrição do cartão vêm de `og:title`/`og:description` de cada página.
+- **Cartão de compartilhamento**: uma imagem por página em `assets/img/og-*.jpg` (1200×630, JPG, < 100KB): `og-home`, `og-audiometria`, `og-imitanciometria`, `og-processamento-auditivo`. Rosto da Dra. no centro da imagem, para funcionar também no recorte quadrado da miniatura do WhatsApp Web. Cada página tem `og:title`/`og:description` curtos (≈ 55 e 110 caracteres), `og:image` com tipo, dimensões e `alt`, e as equivalentes `twitter:*`.
+- **WhatsApp guarda as prévias em cache** por link. Ao trocar a imagem, use um **nome de arquivo novo**; para testar uma prévia nova, compartilhe o link com um parâmetro (ex.: `…/fonoanaluiza/?v=3`).
+- Outras meta tags em todas as páginas: `robots` (com `max-image-preview:large`), `author`, `application-name`, `format-detection` (telefone vira link só onde marcamos), `geo.*`/`ICBM` (Cuiabá) e `theme-color`.
 - **Troca para o domínio próprio** (checklist):
   1. Apontar o DNS para o GitHub Pages, criar o arquivo `CNAME` com `fonoanaluizadavid.com.br` e configurar o domínio em Settings → Pages.
   2. Trocar `https://guiooak.github.io/fonoanaluiza` por `https://fonoanaluizadavid.com.br` em `og:url` e `og:image` de todas as páginas (enquanto o domínio aponta para o WordPress, o cartão precisa apontar para o github.io).
