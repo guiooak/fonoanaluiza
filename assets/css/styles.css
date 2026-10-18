@@ -791,6 +791,8 @@ a:hover { color: var(--navy-600); }
   position: absolute;
   top: calc(100% + var(--space-2));
   left: 50%;
+  display: grid;
+  gap: var(--space-1); /* separa os fundos de item ativo e hover */
   min-width: 17rem;
   padding: var(--space-2);
   margin: 0;
