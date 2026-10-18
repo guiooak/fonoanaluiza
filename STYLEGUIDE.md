@@ -118,13 +118,13 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 ### Botões
 - `.btn`: primário esmeralda (creme em fundo navy), rótulo **"Agendar consulta"**. Ele substitui "AGENDAR CONSULTA PARTICULAR COM A ESPECIALISTA".
-- `.btn--lg`: hero e CTA de fechamento. `.btn--sm`: header. `.btn--block`: menu mobile.
+- `.btn--lg`: hero e CTA de fechamento. `.btn--sm`: usos pontuais (ex.: demos). `.btn--block`: menu mobile.
 - `.btn--secondary`: contorno `#7A8399` (≥3:1 contra o fundo), ação alternativa ("Conhecer o Método ACC"). Fica no máximo um por grupo e sempre ao lado de um primário.
 - `.link-arrow`: navegação para outra página ou seção ("Saiba mais →").
 - Use o ícone do WhatsApp **só** em botões que abrem o WhatsApp.
 - Todo CTA de agendamento aponta para `https://wa.me/5565998682998` e leva `data-cta="<local>"` para o rastreamento.
 - **Todo link de WhatsApp abre em nova aba:** `target="_blank" rel="noopener"` (CTAs, botão flutuante, contato, redes e rodapé).
-- **No máximo 1 CTA por seção.** A home tem o CTA do header, o botão flutuante e de 4 a 5 CTAs no corpo (hero, depois dos sintomas, depois dos depoimentos, depois dos passos e no fechamento).
+- **No máximo 1 CTA por seção.** A home tem o botão flutuante de WhatsApp e de 4 a 5 CTAs no corpo (hero, depois dos sintomas, depois dos depoimentos, depois dos passos e no fechamento).
 
 ### Card (`.card`)
 - Estrutura: `.icon-badge` (opcional), depois `h3.card__title`, depois `p.card__text`, depois `.link-arrow` (opcional).
@@ -183,7 +183,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 ### Header / navegação
 - Header sticky com blur. Ganha borda ao rolar (`.is-scrolled`, via JS).
 - A marca (`.brand`) combina o ícone do logo com o nome em Sora e "Fonoaudióloga" em Inter caixa alta.
-- Menu desktop: Início · Exames (dropdown) · Método ACC · Sobre · Localização, mais `.btn--sm`.
+- Menu desktop: Início · Exames (dropdown) · Método ACC · Sobre · Localização · Agende consulta (→ `/#agendar`, a chamada final), **alinhado à direita** e sem botão de CTA no header (o agendamento fica no botão flutuante e nos CTAs do corpo). No menu mobile, o botão "Agendar consulta" aparece ao fim da lista.
 - Abaixo de 1024px vira hambúrguer com painel em tela cheia (`.mobile-nav`), onde "Exames" é rótulo de grupo (`.mobile-nav__label`), não link.
 - Marque a página atual com `aria-current="page"` no link.
 
