@@ -107,7 +107,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 ## 6. Ícones
 
-- O sprite fica em `assets/img/icons.svg`, com traço de 1.75px, 24×24 e `currentColor`.
+- O sprite fica em `assets/img/icons.svg` (inclui `star`, preenchido, para avaliações), com traço de 1.75px, 24×24 e `currentColor`.
 - Uso: `<svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#nome"/></svg>`.
 - Ícone decorativo leva `aria-hidden="true"`. Botão só com ícone leva `aria-label`.
 - Ícone de destaque fica dentro de `.icon-badge` (pastilha 48px sand-100, ícone navy).
@@ -123,20 +123,21 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - `.link-arrow`: navegação para outra página ou seção ("Saiba mais →").
 - Use o ícone do WhatsApp **só** em botões que abrem o WhatsApp.
 - Todo CTA de agendamento aponta para `https://wa.me/5565998682998` e leva `data-cta="<local>"` para o rastreamento.
+- **Todo link de WhatsApp abre em nova aba:** `target="_blank" rel="noopener"` (CTAs, botão flutuante, contato, redes e rodapé).
 - **No máximo 1 CTA por seção.** A home tem o CTA do header, o botão flutuante e de 4 a 5 CTAs no corpo (hero, depois dos sintomas, depois dos depoimentos, depois dos passos e no fechamento).
 
 ### Card (`.card`)
 - Estrutura: `.icon-badge` (opcional), depois `h3.card__title`, depois `p.card__text`, depois `.link-arrow` (opcional).
 - `.card--interactive` vale para cards que são link (exames), com elevação no hover.
 - `.card--flat` vale para cards informativos em grade (diferenciais), sem sombra.
-- Use em `.grid--2`, `.grid--3` ou `.grid--4`. Nunca misture tamanhos de card na mesma grade.
+- Use em `.grid--2`, `.grid--3` ou `.grid--4` — o número é o **máximo** de colunas (1 no mobile, 2 a partir de 640px, 3/4 a partir de 896/1024px). Nunca misture tamanhos de card na mesma grade.
 
 ### Listas
 - `.checklist`: indicações ("Quando esse exame é indicado?") e benefícios ("O que o Método ACC faz?").
 - `.def-list` (`<dl>`): termo + explicação (Audiometria Tonal/Vocal, "O que o exame revela?").
 
 ### Destaques
-- `.strip`: faixa logo abaixo do hero com informações de atendimento.
+- `.strip`: faixa logo abaixo do hero com informações de atendimento; cada item é um `.strip__item` (ícone + texto na mesma linha).
 - `.stat`: dado de impacto (20% / ASHA), sempre em seção navy, um por página.
 - `.callout`: observação importante dentro do texto — fundo branco, borda sand-200, ícone navy. `.callout--warm` (âmbar) serve para avisos práticos.
 - `.quote`: frase de efeito da Dra., uma por seção.
@@ -161,6 +162,14 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - Estrutura: vídeo **ou** `.testimonial__quote` (texto, mesma proporção 9:16), depois `h3.testimonial__title` com o problema, depois `p.testimonial__text` com o resultado, depois `.testimonial__name` ("Rafaela, 10 anos").
 - Agrupe dentro de `.rail` (trilho com scroll horizontal no mobile e grade no desktop; ajuste `--rail-cols`).
 
+### Avaliações (`.reviews` > `.card.review`)
+- `<figure class="card review">` com `.review__stars` (5× `#star`, `role="img"` + `aria-label`), `blockquote.review__text` e `figcaption.review__author` (nome em `<strong>` + "Avaliação no Google · `<time>`").
+- **Texto literal**: citações de pacientes não são corrigidas (nem ortografia, nem pontuação). Só o nome pode ter a capitalização ajustada.
+- Mobile: trilho com scroll horizontal, cards de mesma altura. ≥768px: 2 colunas masonry; ≥1024px: 3 colunas.
+
+### Depoimento largo (`.testimonial--wide`)
+- Depoimento só em texto (sem vídeo), fora do `.rail`, logo abaixo dele. No desktop a citação fica à esquerda e o resumo à direita.
+
 ### FAQ (`.faq`)
 - `<details><summary>Pergunta</summary><div class="faq__answer">…</div></details>`.
 - Não exige JS. Só a primeira pergunta pode vir aberta (`open`), e só quando fizer sentido.
@@ -178,14 +187,14 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - Marque a página atual com `aria-current="page"` no link.
 
 ### Rodapé
-- Três colunas: marca + descrição · Exames · Contato + redes. Embaixo ficam razão social, CNPJ e ano (`data-year`).
+- Três colunas: marca (`.brand.brand--light`, mesma composição do header) + descrição · Exames · Contato + redes. Embaixo ficam razão social, CNPJ e ano (`data-year`).
 
 ### WhatsApp flutuante (`.wa-float`)
 - Aparece em todas as páginas, com `aria-label` e `data-cta="flutuante"`.
 
 ## 8. Estrutura das páginas
 
-**Home:** hero (`h1`) → `.strip` → vídeo + Método ACC → `.stat` (navy) → sintomas (`.grid` de `.card`) → depoimentos (navy, `.rail`) → ACC Conecta (`.split`) → o que o ACC faz (`.checklist`) → passos (`.steps`) → diferenciais (`.grid--3` de `.card--flat`) → sobre a Dra. (`#sobre`, `.split` + `.cutout`) → FAQ → localização (`#localizacao`) → `.cta-block` → rodapé.
+**Home:** hero (`h1`) → `.strip` → vídeo + Método ACC → `.stat` (navy) → sintomas (`.grid` de `.card`) → depoimentos (navy, `.rail`) → ACC Conecta (`.split`) → o que o ACC faz (`.checklist`) → passos (`.steps`) → diferenciais (`.grid--3` de `.card--flat`) → avaliações do Google (`.reviews`) → sobre a Dra. (`#sobre`, `.split` + `.cutout`) → FAQ → localização (`#localizacao`) → `.cta-block` → rodapé.
 
 **Páginas de exame** (mesmo template): hero (`h1` = nome do exame + pergunta) → indicações (`.checklist`) → por que é importante → como é feito (`.def-list` ou passos) → o que o exame revela (`.def-list`) → `.callout` de fechamento + CTA → outros exames (`.grid--3` de `.card--interactive`) → bio curta da Dra. com link para `/#sobre` → rodapé.
 

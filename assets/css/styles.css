@@ -233,9 +233,10 @@ a:hover { color: var(--navy-600); }
 .section-head > .lead { margin-top: var(--space-2); }
 
 .grid { display: grid; gap: var(--space-6); }
-.grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
-.grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
-.grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+/* Número máximo de colunas fixo — nunca sobra card órfão */
+@media (min-width: 40rem) { .grid--2, .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 56rem) { .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 64rem) { .grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 /* Duas colunas mídia + texto */
 .split {
@@ -329,6 +330,7 @@ a:hover { color: var(--navy-600); }
 .link-arrow {
   display: inline-flex;
   align-items: center;
+  min-height: 2.75rem; /* área de toque ≥ 44px */
   gap: var(--space-2);
   font-weight: 600;
   color: var(--color-heading);
@@ -381,7 +383,8 @@ a:hover { color: var(--navy-600); }
   text-align: center;
 }
 .strip .cluster { justify-content: center; --cluster-gap: var(--space-2) var(--space-6); }
-.strip .icon { color: var(--mist-500); }
+.strip .icon { color: #9fb8d6; }
+.strip__item { display: inline-flex; align-items: center; gap: var(--space-2); text-align: left; }
 
 /* 5.6 Estatística / destaque numérico ------------------------------------- */
 .stat {
@@ -540,12 +543,16 @@ a:hover { color: var(--navy-600); }
 /* 5.10 Depoimento ---------------------------------------------------------- */
 .testimonial {
   display: grid;
+  align-content: start;
   gap: var(--space-6);
   padding: var(--space-6);
   background: var(--color-surface);
   border: var(--border);
   border-radius: var(--radius-lg);
 }
+/* Em cards, o vídeo vertical usa 4:5 (o player do Vimeo se ajusta ao abrir) */
+.testimonial .video--vertical { --ratio: 4 / 5; }
+
 /* Depoimento escrito no lugar do vídeo (mesma proporção 9:16) */
 .testimonial__quote {
   position: relative;
@@ -553,14 +560,15 @@ a:hover { color: var(--navy-600); }
   flex-direction: column;
   justify-content: center;
   gap: var(--space-4);
-  aspect-ratio: 9 / 16;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 9 / 16; /* texto longo aumenta a altura, nunca a largura */
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-lg);
   background: var(--navy-700);
   color: var(--navy-100);
   font-size: var(--step--1);
   line-height: 1.6;
-  overflow: hidden;
 }
 .testimonial__quote::before {
   content: "\201C";
@@ -575,6 +583,17 @@ a:hover { color: var(--navy-600); }
 .testimonial__text { color: var(--color-text); }
 .testimonial__name { font-size: var(--step--1); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); }
 
+/* Depoimento largo (texto): ocupa a linha inteira no desktop, citação ao lado do resumo */
+.testimonial--wide .testimonial__quote { aspect-ratio: auto; }
+@media (min-width: 64rem) {
+  .testimonial--wide { grid-template-columns: 3fr 2fr; grid-template-rows: 1fr auto auto auto 1fr; column-gap: var(--space-12); row-gap: var(--space-4); }
+  .testimonial--wide .testimonial__quote { grid-column: 1; grid-row: 1 / -1; aspect-ratio: auto; font-size: var(--step-0); padding: var(--space-12); }
+  .testimonial--wide > :not(.testimonial__quote) { grid-column: 2; }
+  .testimonial--wide > .testimonial__title { grid-row: 2; }
+  .testimonial--wide > .testimonial__text { grid-row: 3; }
+  .testimonial--wide > .testimonial__name { grid-row: 4; }
+}
+
 /* Trilho horizontal com scroll-snap (depoimentos no mobile) */
 .rail {
   display: grid;
@@ -585,12 +604,41 @@ a:hover { color: var(--navy-600); }
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   padding-bottom: var(--space-2);
+  align-items: start; /* cada card com a própria altura */
 }
 .rail::-webkit-scrollbar { display: none; }
-.rail > * { scroll-snap-align: start; }
+.rail > * { scroll-snap-align: start; min-width: 0; }
 @media (min-width: 64rem) {
-  .rail { grid-auto-flow: row; grid-template-columns: repeat(var(--rail-cols, 4), 1fr); overflow: visible; }
+  .rail { grid-auto-flow: row; grid-template-columns: repeat(var(--rail-cols, 4), minmax(0, 1fr)); overflow: visible; }
 }
+
+/* 5.10b Avaliação (Google) ------------------------------------------------- */
+.reviews {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(85%, 20rem);
+  align-items: stretch; /* no trilho, cards com a mesma altura */
+  gap: var(--space-6);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: var(--space-2);
+}
+.reviews::-webkit-scrollbar { display: none; }
+.reviews > * { scroll-snap-align: start; }
+@media (min-width: 48rem) {
+  .reviews { display: block; columns: 2; column-gap: var(--space-6); overflow: visible; padding-bottom: 0; }
+  .reviews > * { break-inside: avoid; margin-bottom: var(--space-6); }
+}
+@media (min-width: 64rem) { .reviews { columns: 3; } }
+
+.review { gap: var(--space-4); padding: var(--space-6); }
+.review__stars { display: flex; gap: 2px; color: var(--amber-500); }
+.review__stars .icon { width: 1rem; height: 1rem; }
+.review__text { color: var(--ink-900); }
+.review__author { display: grid; gap: 2px; font-size: var(--step--1); }
+.review__author strong { font-weight: 600; }
+.review__author span { color: var(--color-muted); }
 
 /* 5.11 FAQ (details/summary) ---------------------------------------------- */
 .faq { border-top: var(--border); }
@@ -689,6 +737,8 @@ a:hover { color: var(--navy-600); }
 .brand__name { display: grid; font-family: var(--font-display); font-size: 1rem; font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
 .brand__name small { font-family: var(--font-body); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-500); }
 .brand:hover { color: var(--navy-800); }
+.brand--light, .brand--light:hover { color: #fff; }
+.brand--light .brand__name small { color: var(--navy-300); }
 
 .nav { display: none; }
 .nav__list { display: flex; align-items: center; gap: var(--space-1); margin: 0; padding: 0; list-style: none; }
@@ -813,7 +863,8 @@ a:hover { color: var(--navy-600); }
 .site-footer h2 { font-family: var(--font-body); font-size: var(--step--1); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; margin-bottom: var(--space-4); }
 .site-footer a { color: var(--navy-100); text-decoration: none; }
 .site-footer a:hover { color: #fff; text-decoration: underline; }
-.site-footer__logo img { height: 3.5rem; width: auto; margin-bottom: var(--space-4); }
+.site-footer .brand { margin-bottom: var(--space-6); }
+.site-footer .brand:hover { text-decoration: none; }
 .site-footer__bottom {
   margin-top: var(--space-12);
   padding-top: var(--space-6);
@@ -869,6 +920,33 @@ a:hover { color: var(--navy-600); }
   --color-focus: #9fb8d6;
 }
 .cta-block > p { max-width: 52ch; }
+
+/* 5.18 Padrões de página ---------------------------------------------------- */
+.split--top { align-items: start; }
+@media (min-width: 56rem) {
+  .is-sticky { position: sticky; top: calc(var(--header-h) + var(--space-8)); }
+}
+.hero__media { width: 100%; max-width: 30rem; margin-inline: auto; }
+@media (max-width: 55.99rem) { .split > .media--portrait { width: 100%; max-width: 30rem; } }
+.media--portrait.media--top img { object-position: top; }
+/* Foto que já se dissolve no navy: some na base, sem bordas */
+.media--fade { background: transparent; border-radius: var(--radius-lg) var(--radius-lg) 0 0; -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 98%); mask-image: linear-gradient(180deg, #000 60%, transparent 98%); }
+.video-caption { margin-top: var(--space-3); font-size: var(--step--1); color: var(--color-muted); }
+.highlight {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3);
+  align-items: center;
+  padding-top: var(--space-6);
+  border-top: var(--border);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 500;
+  line-height: var(--leading-snug);
+  color: var(--color-heading);
+}
+.highlight .icon { width: 1.5rem; height: 1.5rem; color: var(--color-action); }
+.stat__note { font-weight: 600; color: var(--color-heading); }
 
 /* --------------------------------------------------------------------------
    6. Animação de entrada (ativada por JS: html.js [data-reveal])
