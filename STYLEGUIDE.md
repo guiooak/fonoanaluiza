@@ -180,6 +180,15 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - `.social` traz botões circulares (Instagram e WhatsApp). Não há Facebook enquanto não existir URL.
 - `.map` tem proporção 4:3 e usa `<iframe loading="lazy" title="…">`.
 
+### Privacidade e cookies (LGPD)
+- **Aviso (`.consent.theme-dark`)**: barra fixa embaixo, aparece **10s** após abrir a página se ainda não houver escolha. Dois botões de mesmo peso: "Recusar" (`.btn--secondary`) e "Aceitar" (`.btn`), com link para a Política de Cookies. Enquanto ele está aberto, o botão flutuante do WhatsApp é ocultado.
+- **Escolha** salva em `localStorage["consent"]` = `{ v, analytics, at }`. Para pedir o consentimento de novo (ex.: mudou a política), aumente `CONSENT_VERSION` em `main.js`.
+- **GTM** (GA4 + Google Ads) só carrega depois do "Aceitar" **e** no domínio oficial. Nada de `<script>` ou `<noscript>` do GTM no HTML. "Recusar" apaga cookies `_ga`, `_gid`, `_gat`, `_gcl`, `_gac`.
+- **Políticas** em `<dialog class="policy-modal">` com `id="politica-de-privacidade"` e `id="politica-de-cookies"`: abrem por qualquer link `#politica-…` (inclusive link direto na URL) e fecham com ×, Esc ou clique fora. O texto é igual em todas as páginas; ao alterar, replique e atualize a data "Última atualização".
+- **Reabrir escolha**: qualquer `[data-consent-reopen]` (rodapé e Política de Cookies) mostra o aviso de novo.
+- **Mapa**: nunca iframe direto. Use `.map__placeholder` com botão `[data-map-src]` (carrega no clique) e link "Abrir no Google Maps". Vídeos seguem o mesmo princípio (`.video`).
+- Rodapé de todas as páginas: "Política de Privacidade · Política de Cookies · Preferências de cookies" (`.footer-legal`).
+
 ### Header / navegação
 - Header sticky com blur. Ganha borda ao rolar (`.is-scrolled`, via JS).
 - A marca (`.brand`) combina o ícone do logo com o nome em Sora e "Fonoaudióloga" em Inter caixa alta.
@@ -218,7 +227,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 - **Deploy automático:** todo push na `main` dispara `.github/workflows/deploy.yml`, que publica o site no GitHub Pages (https://guiooak.github.io/fonoanaluiza/).
 - O workflow publica só os arquivos do site (HTML, `assets/`, `sitemap.xml`, `robots.txt`); `.md`, `.claude/` e `_redirects` ficam de fora.
-- O GTM só carrega no domínio `fonoanaluizadavid.com.br`, para que previews e o github.io não gerem visitas nem conversões falsas.
+- O GTM só carrega no domínio `fonoanaluizadavid.com.br` **e após o consentimento**, para que previews e o github.io não gerem visitas nem conversões falsas.
 - Domínio próprio: quando o DNS for apontado para o GitHub Pages, adicione o arquivo `CNAME` com `fonoanaluizadavid.com.br` e configure o domínio em Settings → Pages.
 
 ## 11. Acessibilidade

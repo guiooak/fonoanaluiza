@@ -192,6 +192,179 @@
     });
   });
 
+  /* Mapa sob demanda: <button data-map-src="..."> troca o cartão pelo iframe */
+  document.querySelectorAll("[data-map-src]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var map = btn.closest(".map");
+      var iframe = document.createElement("iframe");
+      iframe.src = btn.dataset.mapSrc;
+      iframe.title = btn.dataset.mapTitle || "Mapa";
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "no-referrer-when-downgrade";
+      iframe.allowFullscreen = true;
+      map.innerHTML = "";
+      map.appendChild(iframe);
+    }, { once: true });
+  });
+
+  /* Consentimento de cookies (LGPD) -----------------------------------------
+     Nada de GTM (GA4 + Google Ads) antes do "Aceitar". A escolha fica no
+     localStorage; mude CONSENT_VERSION para pedir o consentimento de novo. */
+  var CONSENT_KEY = "consent";
+  var CONSENT_VERSION = 1;
+  var CONSENT_DELAY = 10000; /* aviso aparece 10s depois, se ainda não houver escolha */
+  var GTM_ID = "GTM-5R4L6XV5";
+  var GTM_HOSTS = /(^|\.)fonoanaluizadavid\.com\.br$/; /* só mede no domínio oficial */
+
+  var banner = document.querySelector("[data-consent-banner]");
+  var gtmLoaded = false;
+  var decided = false;
+
+  function readConsent() {
+    try {
+      var c = JSON.parse(localStorage.getItem(CONSENT_KEY));
+      if (c && c.v === CONSENT_VERSION && typeof c.analytics === "boolean") return c;
+    } catch (e) { /* sem acesso ao storage: trata como sem escolha */ }
+    return null;
+  }
+
+  function saveConsent(accepted) {
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify({ v: CONSENT_VERSION, analytics: accepted, at: new Date().toISOString() }));
+    } catch (e) { /* segue sem persistir */ }
+  }
+
+  function gtmAllowedHost() {
+    var hosts = document.documentElement.dataset.gtmHosts;
+    return hosts ? new RegExp(hosts).test(location.hostname) : GTM_HOSTS.test(location.hostname);
+  }
+
+  function loadGTM() {
+    if (gtmLoaded || !gtmAllowedHost()) return;
+    gtmLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag("consent", "default", {
+      analytics_storage: "granted",
+      ad_storage: "granted",
+      ad_user_data: "granted",
+      ad_personalization: "granted"
+    });
+    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
+    document.head.appendChild(s);
+  }
+
+  function clearTrackingCookies() {
+    var names = document.cookie.split(";").map(function (c) { return c.split("=")[0].trim(); })
+      .filter(function (n) { return /^(_ga|_gid|_gat|_gcl|_gac)/.test(n); });
+    var parts = location.hostname.split(".");
+    names.forEach(function (n) {
+      document.cookie = n + "=; Max-Age=0; path=/";
+      for (var i = 0; i < parts.length - 1; i++) {
+        document.cookie = n + "=; Max-Age=0; path=/; domain=." + parts.slice(i).join(".");
+      }
+    });
+  }
+
+  function showBanner() {
+    if (!banner) return;
+    banner.hidden = false;
+    document.documentElement.classList.add("consent-open");
+  }
+
+  function hideBanner() {
+    if (!banner) return;
+    banner.hidden = true;
+    document.documentElement.classList.remove("consent-open");
+  }
+
+  if (banner) {
+    banner.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-consent]");
+      if (!btn) return;
+      var accepted = btn.dataset.consent === "accept";
+      decided = true;
+      saveConsent(accepted);
+      hideBanner();
+      if (accepted) {
+        loadGTM();
+      } else {
+        clearTrackingCookies();
+        if (gtmLoaded) location.reload(); /* descarrega o GTM que já estava ativo */
+      }
+    });
+  }
+
+  var stored = readConsent();
+  if (stored) {
+    if (stored.analytics) loadGTM();
+  } else {
+    setTimeout(function () { if (!decided) showBanner(); }, CONSENT_DELAY);
+  }
+
+  /* Janelas das políticas: links #politica-... abrem o <dialog> correspondente.
+     A limpeza (hash e trava de rolagem) roda em cada forma de fechar, sem depender
+     só do evento "close", que nem todo navegador dispara de forma confiável. */
+  var modals = document.querySelectorAll(".policy-modal");
+
+  function afterPolicyClose(dialog) {
+    var anyOpen = Array.prototype.some.call(modals, function (m) { return m.open; });
+    if (!anyOpen) document.documentElement.classList.remove("modal-open");
+    if (location.hash === "#" + dialog.id) history.replaceState(null, "", location.pathname + location.search);
+  }
+
+  function closePolicy(dialog) {
+    if (dialog.open) dialog.close();
+    afterPolicyClose(dialog);
+  }
+
+  function openPolicy(id) {
+    var dialog = document.getElementById(id);
+    if (!dialog || !dialog.classList.contains("policy-modal") || typeof dialog.showModal !== "function") return false;
+    modals.forEach(function (m) { if (m !== dialog && m.open) closePolicy(m); });
+    if (!dialog.open) dialog.showModal();
+    document.documentElement.classList.add("modal-open");
+    var body = dialog.querySelector(".policy-modal__body");
+    if (body) body.scrollTop = 0;
+    if (location.hash !== "#" + id) history.replaceState(null, "", "#" + id);
+    return true;
+  }
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest('a[href*="#politica-"]');
+    if (!link) return;
+    var id = link.getAttribute("href").split("#")[1];
+    if (openPolicy(id)) e.preventDefault();
+  });
+
+  modals.forEach(function (dialog) {
+    var close = dialog.querySelector(".policy-modal__close");
+    if (close) close.addEventListener("click", function () { closePolicy(dialog); });
+    dialog.addEventListener("click", function (e) { if (e.target === dialog) closePolicy(dialog); }); /* clique no fundo */
+    dialog.addEventListener("cancel", function () { setTimeout(function () { afterPolicyClose(dialog); }, 0); }); /* Esc */
+    dialog.addEventListener("close", function () { afterPolicyClose(dialog); });
+  });
+
+  if (location.hash.indexOf("#politica-") === 0) openPolicy(location.hash.slice(1));
+  window.addEventListener("hashchange", function () {
+    if (location.hash.indexOf("#politica-") === 0) openPolicy(location.hash.slice(1));
+  });
+
+  /* "Rever minha escolha" / "Preferências de cookies" */
+  document.querySelectorAll("[data-consent-reopen]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var dialog = btn.closest("dialog");
+      if (dialog) closePolicy(dialog);
+      decided = true;
+      showBanner();
+      var first = banner && banner.querySelector("[data-consent]");
+      if (first) first.focus();
+    });
+  });
+
   /* Ano no rodapé ---------------------------------------------------------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();

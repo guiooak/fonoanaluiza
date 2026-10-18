@@ -705,6 +705,22 @@ a:hover { color: var(--navy-600); }
   border: var(--border);
 }
 .map iframe { width: 100%; height: 100%; border: 0; }
+/* Mapa sob demanda: cartão no lugar do iframe até o clique */
+.map__placeholder {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-4);
+  height: 100%;
+  padding: var(--space-8);
+  text-align: center;
+  background:
+    radial-gradient(circle at 30% 20%, rgb(255 255 255 / 0.7), transparent 60%),
+    repeating-linear-gradient(45deg, transparent 0 22px, rgb(23 35 64 / 0.035) 22px 23px),
+    var(--sand-100);
+}
+.map__placeholder address { font-style: normal; color: var(--color-text); max-width: 28ch; }
+.map__placeholder address strong { display: block; color: var(--color-heading); }
 
 /* 5.13 Header -------------------------------------------------------------- */
 .skip-link {
@@ -928,6 +944,91 @@ a:hover { color: var(--navy-600); }
   --color-focus: #9fb8d6;
 }
 .cta-block > p { max-width: 52ch; }
+
+/* 5.17b Aviso de cookies (consentimento) ---------------------------------- */
+.consent {
+  position: fixed;
+  left: var(--space-4);
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 60;
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  animation: consent-in 400ms var(--ease) both;
+}
+.consent[hidden] { display: none; }
+.consent__text { font-size: var(--step--1); line-height: 1.6; }
+.consent__text a { color: #fff; }
+.consent__actions { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-4); }
+@media (min-width: 40rem) {
+  .consent { display: flex; align-items: center; gap: var(--space-6); bottom: var(--space-6); }
+  .consent__actions { flex: none; margin-top: 0; }
+}
+@keyframes consent-in { from { opacity: 0; transform: translateY(16px); } }
+/* Enquanto o aviso está aberto, o botão flutuante sai do caminho */
+.consent-open .wa-float { opacity: 0; pointer-events: none; }
+
+/* 5.17c Janela das políticas (<dialog>) ------------------------------------- */
+.policy-modal {
+  width: min(44rem, calc(100% - var(--space-8)));
+  max-height: min(48rem, calc(100% - var(--space-8)));
+  margin: auto; /* o reset zera a margem nativa que centraliza o <dialog> */
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--sand-0);
+  color: var(--color-text);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.policy-modal[open] { display: flex; flex-direction: column; animation: consent-in 300ms var(--ease) both; }
+.policy-modal::backdrop { background: rgb(11 18 38 / 0.6); backdrop-filter: blur(4px); }
+.policy-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-8);
+  border-bottom: var(--border);
+}
+.policy-modal__header h2 { font-size: var(--step-2); }
+.policy-modal__close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  color: var(--ink-900);
+}
+.policy-modal__close:hover { background: var(--sand-100); }
+.policy-modal__close .icon { width: 1.25rem; height: 1.25rem; }
+.policy-modal__body { padding: var(--space-8); overflow-y: auto; overscroll-behavior: contain; }
+.policy-modal__body h3 { font-size: var(--step-1); }
+.policy-modal__body ul { padding-left: var(--space-6); }
+.policy-modal__body li + li { margin-top: var(--space-2); }
+@media (max-width: 39.99rem) {
+  .policy-modal { width: 100%; max-width: 100%; max-height: 92%; margin: auto 0 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .policy-modal__header { padding-left: var(--space-6); }
+  .policy-modal__body { padding: var(--space-6); }
+}
+.modal-open { overflow: hidden; }
+
+/* Tabela simples (cookies) */
+.table-wrap { overflow-x: auto; border: var(--border); border-radius: var(--radius-md); }
+.table { width: 100%; border-collapse: collapse; font-size: var(--step--1); }
+.table th, .table td { padding: var(--space-3) var(--space-4); text-align: left; vertical-align: top; border-bottom: var(--border); }
+.table th { font-weight: 600; color: var(--color-heading); background: var(--sand-50); white-space: nowrap; }
+.table tr:last-child td { border-bottom: 0; }
+.table code { font-size: 0.95em; }
+
+/* Links legais no rodapé */
+.footer-legal { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); }
+.footer-legal button { color: var(--navy-100); text-decoration: none; font-size: inherit; }
+.footer-legal button:hover { color: #fff; text-decoration: underline; }
 
 /* 5.18 Padrões de página ---------------------------------------------------- */
 .split--top { align-items: start; }

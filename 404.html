@@ -13,11 +13,6 @@
 
   <script>document.documentElement.classList.add("js");</script>
 
-  <!-- Google Tag Manager (GA4 e Google Ads são configurados dentro do GTM) -->
-  <script>/* Só carrega o GTM no domínio oficial (não em previews/GitHub Pages) */
-  if (/(^|\.)fonoanaluizadavid\.com\.br$/.test(location.hostname)) {
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5R4L6XV5');
-  }</script>
 
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -136,7 +131,11 @@
       </div>
       <div class="site-footer__bottom">
         <p>© <span data-year>2026</span> Clínica de Fonoaudiologia David LTDA · CNPJ 23.493.533/0001-58</p>
-        <p>Todos os direitos reservados.</p>
+        <nav class="footer-legal" aria-label="Informações legais">
+          <a href="#politica-de-privacidade">Política de Privacidade</a>
+          <a href="#politica-de-cookies">Política de Cookies</a>
+          <button type="button" data-consent-reopen>Preferências de cookies</button>
+        </nav>
       </div>
     </div>
   </footer>
@@ -144,6 +143,123 @@
   <a class="wa-float" href="https://wa.me/5565998682998" aria-label="Conversar no WhatsApp" data-cta="flutuante" target="_blank" rel="noopener">
     <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#whatsapp"/></svg>
   </a>
+
+  <!-- ===================== AVISO DE COOKIES ===================== -->
+  <div class="consent theme-dark" data-consent-banner role="region" aria-label="Aviso de cookies" hidden>
+    <p class="consent__text">Usamos cookies para medir as visitas ao site e o resultado dos nossos anúncios, só se você permitir. Saiba mais na <a href="#politica-de-cookies">Política de Cookies</a>.</p>
+    <div class="consent__actions">
+      <button class="btn btn--secondary" type="button" data-consent="reject">Recusar</button>
+      <button class="btn" type="button" data-consent="accept">Aceitar</button>
+    </div>
+  </div>
+
+  <!-- ===================== POLÍTICA DE PRIVACIDADE ===================== -->
+  <dialog class="policy-modal" id="politica-de-privacidade" aria-labelledby="politica-de-privacidade-titulo">
+    <div class="policy-modal__header">
+      <h2 id="politica-de-privacidade-titulo">Política de Privacidade</h2>
+      <button class="policy-modal__close" type="button" aria-label="Fechar"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#close"/></svg></button>
+    </div>
+    <div class="policy-modal__body flow">
+      <p class="small muted">Última atualização: 18 de outubro de 2026</p>
+      <p>Esta política explica como a Clínica de Fonoaudiologia David LTDA trata os dados pessoais de quem visita este site ou entra em contato conosco, de acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).</p>
+
+      <h3>1. Quem é a responsável pelos seus dados</h3>
+      <p>A controladora dos dados é a <strong>Clínica de Fonoaudiologia David LTDA</strong>, CNPJ 23.493.533/0001-58, com sede no CEDAP — Av. Haiti, 436, Jardim das Américas, Cuiabá/MT, sob responsabilidade técnica da fonoaudióloga Ana Luíza Martins David.</p>
+      <p>Para qualquer assunto sobre privacidade e proteção de dados, fale com a gente pelo e-mail <a href="mailto:fonoanaluizadavid@gmail.com">fonoanaluizadavid@gmail.com</a>.</p>
+
+      <h3>2. Quais dados são tratados</h3>
+      <ul>
+        <li><strong>Dados de navegação, somente se você aceitar os cookies:</strong> páginas visitadas, tempo de permanência, tipo de dispositivo e navegador, localização aproximada, origem da visita (por exemplo, um anúncio ou uma busca) e cliques nos botões de contato. Se você recusar, esses dados não são coletados.</li>
+        <li><strong>Dados que você nos envia ao entrar em contato</strong> pelo WhatsApp, e-mail ou Instagram: nome, telefone, e-mail e o conteúdo da conversa. Essa conversa pode incluir informações de saúde, como queixas auditivas, exames e laudos, inclusive de crianças e adolescentes sob a sua responsabilidade. Esses são dados sensíveis e recebem cuidado redobrado.</li>
+      </ul>
+      <p>Este site não possui formulários, cadastro nem área de login.</p>
+
+      <h3>3. Para que os dados são usados</h3>
+      <ul>
+        <li>Responder às suas mensagens e agendar consultas e exames.</li>
+        <li>Realizar o atendimento fonoaudiológico e manter o prontuário, como exigem as normas da profissão.</li>
+        <li>Entender como o site é usado, para melhorá-lo, e medir o resultado dos nossos anúncios. Isso só acontece com o seu consentimento.</li>
+      </ul>
+      <p>Tratamos os dados com base no seu consentimento (cookies de medição e publicidade), nos procedimentos necessários para o agendamento e a prestação do serviço, na tutela da saúde e no cumprimento de obrigações legais e regulatórias.</p>
+
+      <h3>4. Com quem os dados são compartilhados</h3>
+      <p>Não vendemos nem alugamos dados pessoais. Para o site e o atendimento funcionarem, usamos serviços de terceiros, que tratam dados conforme as próprias políticas de privacidade:</p>
+      <ul>
+        <li><strong>Google</strong>: Tag Manager, Analytics e Ads (somente com o seu aceite), Maps (somente quando você abre o mapa) e Fonts.</li>
+        <li><strong>Meta</strong>: WhatsApp e Instagram, quando você conversa com a gente por esses canais.</li>
+        <li><strong>Vimeo</strong>: exibição dos vídeos, carregados só quando você clica para assistir.</li>
+        <li><strong>GitHub</strong>: hospedagem do site.</li>
+      </ul>
+      <p>Alguns desses fornecedores podem tratar dados fora do Brasil, sempre com as garantias previstas na LGPD. Também podemos compartilhar dados com autoridades quando houver obrigação legal ou ordem judicial.</p>
+
+      <h3>5. Por quanto tempo os dados são guardados</h3>
+      <ul>
+        <li><strong>Mensagens de contato</strong> que não resultam em atendimento: pelo tempo necessário para responder e agendar.</li>
+        <li><strong>Prontuários e dados do atendimento</strong>: pelo prazo exigido pelas normas aplicáveis à fonoaudiologia e à saúde.</li>
+        <li><strong>Dados de navegação</strong>: pelo período de retenção configurado no Google Analytics.</li>
+      </ul>
+      <p>Encerrados esses prazos, os dados são eliminados ou anonimizados.</p>
+
+      <h3>6. Seus direitos</h3>
+      <p>Pela LGPD, você pode, a qualquer momento:</p>
+      <ul>
+        <li>confirmar se tratamos seus dados e ter acesso a eles;</li>
+        <li>corrigir dados incompletos, inexatos ou desatualizados;</li>
+        <li>pedir a anonimização, o bloqueio ou a eliminação de dados desnecessários ou tratados em desconformidade com a lei;</li>
+        <li>pedir a portabilidade dos dados a outro fornecedor;</li>
+        <li>saber com quem compartilhamos seus dados;</li>
+        <li>revogar o consentimento, inclusive o dos cookies, e pedir a eliminação dos dados tratados com base nele.</li>
+      </ul>
+      <p>Para exercer esses direitos, escreva para <a href="mailto:fonoanaluizadavid@gmail.com">fonoanaluizadavid@gmail.com</a>. Você também pode apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+      <h3>7. Segurança</h3>
+      <p>Adotamos medidas técnicas e administrativas para proteger os dados contra acessos não autorizados, perda ou uso indevido. O site usa conexão segura (HTTPS) e o acesso às informações dos pacientes é restrito a quem precisa delas para o atendimento. Nenhum sistema é totalmente imune a falhas, mas trabalhamos para manter os riscos tão baixos quanto possível.</p>
+
+      <h3>8. Cookies</h3>
+      <p>Para saber quais cookies usamos e como gerenciá-los, leia a <a href="#politica-de-cookies">Política de Cookies</a>.</p>
+
+      <h3>9. Alterações</h3>
+      <p>Esta política pode ser atualizada para refletir mudanças no site, nos serviços ou na legislação. A data da última atualização fica sempre no topo. Quando a mudança exigir, pediremos o seu consentimento novamente.</p>
+    </div>
+  </dialog>
+
+  <!-- ===================== POLÍTICA DE COOKIES ===================== -->
+  <dialog class="policy-modal" id="politica-de-cookies" aria-labelledby="politica-de-cookies-titulo">
+    <div class="policy-modal__header">
+      <h2 id="politica-de-cookies-titulo">Política de Cookies</h2>
+      <button class="policy-modal__close" type="button" aria-label="Fechar"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#close"/></svg></button>
+    </div>
+    <div class="policy-modal__body flow">
+      <p class="small muted">Última atualização: 18 de outubro de 2026</p>
+
+      <h3>1. O que são cookies</h3>
+      <p>Cookies são pequenos arquivos que um site grava no seu navegador para lembrar informações entre uma visita e outra. Tecnologias parecidas, como o armazenamento local do navegador, funcionam do mesmo jeito e são tratadas aqui da mesma forma.</p>
+
+      <h3>2. O que este site usa</h3>
+      <p><strong>Essencial (sempre ativo).</strong> Guardamos no seu navegador apenas a sua escolha sobre os cookies (aceitar ou recusar) e a data dessa escolha, para não perguntar de novo a cada visita. Essa informação não identifica você.</p>
+      <p><strong>Medição e publicidade (só se você aceitar).</strong> Com o seu aceite, carregamos o Google Tag Manager, que ativa o Google Analytics e o Google Ads:</p>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th scope="col">Cookie</th><th scope="col">Serviço</th><th scope="col">Para que serve</th><th scope="col">Duração</th></tr></thead>
+          <tbody>
+            <tr><td><code>_ga</code></td><td>Google Analytics</td><td>Distinguir visitantes de forma anônima</td><td>2 anos</td></tr>
+            <tr><td><code>_ga_*</code></td><td>Google Analytics</td><td>Manter o estado da visita</td><td>2 anos</td></tr>
+            <tr><td><code>_gcl_au</code></td><td>Google Ads</td><td>Medir as conversões dos anúncios</td><td>90 dias</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Serviços de terceiros (só quando você clica).</strong> Os vídeos (Vimeo) e o mapa (Google Maps) só são carregados quando você clica neles. Os vídeos usam o modo “não rastrear” do Vimeo; o Google Maps pode gravar cookies próprios, conforme a política do Google.</p>
+      <p>As fontes do site são carregadas dos servidores do Google Fonts. Elas não gravam cookies, mas o Google recebe o endereço IP do seu dispositivo para entregar os arquivos.</p>
+
+      <h3>3. Como gerenciar</h3>
+      <p>Você pode mudar sua escolha quando quiser. Se recusar, os cookies de medição e publicidade gravados antes são apagados, e o site continua funcionando normalmente.</p>
+      <p><button class="btn btn--secondary btn--sm" type="button" data-consent-reopen>Rever minha escolha</button></p>
+      <p>Também é possível apagar ou bloquear cookies nas configurações do seu navegador.</p>
+
+      <h3>4. Contato</h3>
+      <p>Dúvidas sobre cookies ou sobre os seus dados? Escreva para <a href="mailto:fonoanaluizadavid@gmail.com">fonoanaluizadavid@gmail.com</a> ou consulte a <a href="#politica-de-privacidade">Política de Privacidade</a>.</p>
+    </div>
+  </dialog>
 
   <script src="assets/js/main.js" defer></script>
 </body>
