@@ -192,6 +192,42 @@
     });
   });
 
+  /* Contagem numérica na primeira aparição: <x data-count-to="20" data-count-suffix="%">20%</x>
+     O HTML já traz o valor final (sem JS, buscadores e leitores de tela veem "20%"). */
+  var counters = document.querySelectorAll("[data-count-to]");
+  if (counters.length && "IntersectionObserver" in window && !reduceMotion.matches) {
+    var COUNT_DURATION = 1600;
+    var easeOut = function (t) { return 1 - Math.pow(1 - t, 3); };
+
+    var runCount = function (el) {
+      var target = parseFloat(el.dataset.countTo);
+      var suffix = el.dataset.countSuffix || "";
+      var start = null;
+      var finish = function () { el.textContent = target + suffix; };
+      el.setAttribute("aria-label", target + suffix); /* leitores de tela leem só o valor final */
+      el.style.minWidth = el.getBoundingClientRect().width + "px"; /* evita o texto mudar de largura */
+      var step = function (now) {
+        if (start === null) start = now;
+        var t = Math.min((now - start) / COUNT_DURATION, 1);
+        el.textContent = Math.round(easeOut(t) * target) + suffix;
+        if (t < 1) requestAnimationFrame(step); else finish();
+      };
+      el.textContent = "0" + suffix;
+      requestAnimationFrame(step);
+      /* garante o valor final mesmo se a aba for para segundo plano no meio da contagem */
+      setTimeout(finish, COUNT_DURATION + 400);
+    };
+
+    var countObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        countObserver.unobserve(entry.target); /* só na primeira aparição */
+        runCount(entry.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { countObserver.observe(el); });
+  }
+
   /* Mapa sob demanda: <button data-map-src="..."> troca o cartão pelo iframe */
   document.querySelectorAll("[data-map-src]").forEach(function (btn) {
     btn.addEventListener("click", function () {

@@ -139,6 +139,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 ### Destaques
 - `.strip`: faixa logo abaixo do hero com informações de atendimento; cada item é um `.strip__item` (ícone + texto na mesma linha).
 - `.stat`: dado de impacto (20% / ASHA), sempre em seção navy, um por página.
+  - **Contagem animada:** `data-count-to="20" data-count-suffix="%"` no `.stat__value` faz o número contar de 0 até o valor na **primeira** vez que aparece na tela (1,6s, desacelerando no fim). O HTML mantém o valor final escrito; com `prefers-reduced-motion` não há contagem. Dígitos em `tabular-nums` para o texto não "pular".
 - `.callout`: observação importante dentro do texto — fundo branco, borda sand-200, ícone navy. `.callout--warm` (âmbar) serve para avisos práticos.
 - `.quote`: frase de efeito da Dra., uma por seção.
 
