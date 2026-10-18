@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /styleguide.html
+
+Sitemap: https://fonoanaluizadavid.com.br/sitemap.xml

@@ -756,7 +756,8 @@ a:hover { color: var(--navy-600); }
   text-decoration: none;
   transition: color var(--duration) var(--ease), background-color var(--duration) var(--ease);
 }
-.nav__link:hover, .nav__link[aria-current="page"] { color: var(--ink-900); background: var(--sand-100); }
+.nav__link:hover, .nav__link[aria-current="page"], .nav__link.is-active { color: var(--ink-900); background: var(--sand-100); }
+.submenu a[aria-current="page"] { background: var(--sand-100); }
 .nav__link .icon { width: 1rem; height: 1rem; transition: transform var(--duration) var(--ease); }
 
 /* Dropdown */
@@ -903,6 +904,13 @@ a:hover { color: var(--navy-600); }
 @media (min-width: 56rem) { .hero__grid { grid-template-columns: 7fr 5fr; gap: var(--space-16); } }
 .hero__content { display: grid; gap: var(--space-6); }
 .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); margin-top: var(--space-2); }
+
+/* 5.16b Breadcrumb (páginas internas) ------------------------------------- */
+.breadcrumb ol { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin: 0; padding: 0; list-style: none; font-size: var(--step--1); color: var(--color-muted); }
+.breadcrumb li + li::before { content: "/"; margin-right: var(--space-2); color: var(--sand-300); }
+.breadcrumb a { color: var(--color-muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-heading); text-decoration: underline; }
+.breadcrumb [aria-current="page"] { color: var(--color-heading); font-weight: 500; }
 
 /* 5.17 Bloco CTA ----------------------------------------------------------- */
 .cta-block {

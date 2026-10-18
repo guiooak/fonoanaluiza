@@ -1,0 +1,7 @@
+# Netlify: URLs antigas do WordPress → novas páginas (301)
+/2025/05/27/ola-mundo/   /   301
+/category/*              /   301
+/author/*                /   301
+/sitemap_index.xml       /sitemap.xml   301
+/wp-admin/*              /   301
+/feed/*                  /   301

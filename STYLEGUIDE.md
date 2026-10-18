@@ -187,6 +187,11 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - Abaixo de 1024px vira hambúrguer com painel em tela cheia (`.mobile-nav`), onde "Exames" é rótulo de grupo (`.mobile-nav__label`), não link.
 - Marque a página atual com `aria-current="page"` no link.
 
+### Breadcrumb (`.breadcrumb`)
+- Só em páginas internas, no topo do `.hero__content`, antes do eyebrow: `Início / Exames / <página>`.
+- `<nav aria-label="Você está em"><ol>…</ol></nav>`; o item atual leva `aria-current="page"`. Acompanha um `BreadcrumbList` no JSON-LD.
+- Nas páginas de exame, o botão "Exames" do menu recebe `.is-active` e o link do exame no submenu, `aria-current="page"`. O item "Agende consulta" aponta para o `#agendar` da própria página.
+
 ### Rodapé
 - Três colunas: marca (`.brand.brand--light`, mesma composição do header) + descrição · Exames · Contato + redes. Embaixo ficam razão social, CNPJ e ano (`data-year`).
 
@@ -197,13 +202,14 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 **Home:** hero (`h1`) → `.strip` → vídeo + Método ACC → `.stat` (navy) → sintomas (`.grid` de `.card`) → depoimentos (navy, `.rail`) → ACC Conecta (`.split`) → o que o ACC faz (`.checklist`) → passos (`.steps`) → diferenciais (`.grid--3` de `.card--flat`) → avaliações do Google (`.reviews`) → sobre a Dra. (`#sobre`, `.split` + `.cutout`) → FAQ → localização (`#localizacao`) → `.cta-block` → rodapé.
 
-**Páginas de exame** (mesmo template): hero (`h1` = nome do exame + pergunta) → indicações (`.checklist`) → por que é importante → como é feito (`.def-list` ou passos) → o que o exame revela (`.def-list`) → `.callout` de fechamento + CTA → outros exames (`.grid--3` de `.card--interactive`) → bio curta da Dra. com link para `/#sobre` → rodapé.
+**Páginas de exame** (`/audiometria/`, `/imitanciometria/`, `/processamento-auditivo-central/`): hero (breadcrumb + `h1` com a pergunta original + foto) → `.strip` → indicações (`.checklist` em card) → [audiometria: crianças] → importância → como é feito (`.def-list` ou `.steps`) → [o que o exame revela] → `.cta-block` `#agendar` → 3 avaliações + link para todas → resumo da Dra. (navy, link para `/#sobre`) → outros exames (`.grid--3` de `.card--interactive`) → localização → rodapé. Fundos claros alternam sand-50/sand-100 automaticamente.
 
 ## 9. Convenções de código
 
 - **Classes:** BEM leve (`.bloco`, `.bloco__elemento`, `.bloco--variante`). Estado com `.is-*` (`.is-open`, `.is-visible`) ou atributos ARIA.
 - **Layout:** os utilitários disponíveis são `.container`, `.section`, `.grid`, `.split`, `.stack`, `.cluster` e `.flow`. Não crie wrappers ad hoc.
 - **Estilo inline:** só para ajustar uma custom property de componente (`style="--rail-cols:3"`).
+- **Header, rodapé e localização são idênticos nas 4 páginas** (HTML duplicado, sem includes). Ao mudar um deles, replique nas outras páginas.
 - **Caminhos:** absolutos a partir da raiz (`/assets/...`), porque as páginas ficam em subpastas (`/audiometria/index.html`).
 - **JS:** `assets/js/main.js`, sem dependências e com `defer`. O `<html>` recebe a classe `js` por um script inline no `<head>`, o que ativa as animações de entrada.
 - **Animação:** `data-reveal` em blocos principais (no máximo 2 ou 3 por seção). Respeita `prefers-reduced-motion`.

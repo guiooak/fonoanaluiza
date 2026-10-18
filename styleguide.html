@@ -108,6 +108,7 @@
         <li><a href="#forma">Forma</a></li>
         <li><a href="#icones">Ícones</a></li>
         <li><a href="#botoes">Botões</a></li>
+        <li><a href="#navegacao">Navegação</a></li>
         <li><a href="#cards">Cards</a></li>
         <li><a href="#listas">Listas</a></li>
         <li><a href="#destaques">Destaques</a></li>
@@ -342,6 +343,33 @@
               <p class="cta-note">Atendimento presencial em Cuiabá-MT e treinamentos online para todo o Brasil.</p>
             </div>
             <p class="sg-label mt-6">CTA + .cta-note — nota curta de apoio abaixo do botão (space-3)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVEGAÇÃO INTERNA -->
+    <section class="sg-block" id="navegacao">
+      <div class="container">
+        <header><span class="eyebrow">07b</span><h2>Navegação interna</h2><p class="muted">Breadcrumb no topo do hero das páginas internas e estado ativo do menu.</p></header>
+        <div class="grid grid--2">
+          <div class="sg-demo">
+            <nav class="breadcrumb" aria-label="Você está em">
+              <ol>
+                <li><a href="/">Início</a></li>
+                <li>Exames</li>
+                <li><span aria-current="page">Audiometria</span></li>
+              </ol>
+            </nav>
+            <p class="sg-label mt-6">.breadcrumb — &lt;nav&gt; + &lt;ol&gt;; item atual com aria-current="page"</p>
+          </div>
+          <div class="sg-demo">
+            <div class="cluster" style="--cluster-gap:var(--space-1)">
+              <a class="nav__link" href="#">Início</a>
+              <span class="nav__link is-active">Exames <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#chevron-down"/></svg></span>
+              <a class="nav__link" href="#">Sobre</a>
+            </div>
+            <p class="sg-label mt-6">.nav__link.is-active (grupo da página atual) · link atual com aria-current="page"</p>
           </div>
         </div>
       </div>
