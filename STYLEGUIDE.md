@@ -122,7 +122,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - `.btn--secondary`: contorno `#7A8399` (≥3:1 contra o fundo), ação alternativa ("Conhecer o Método ACC"). Fica no máximo um por grupo e sempre ao lado de um primário.
 - `.link-arrow`: navegação para outra página ou seção ("Saiba mais →").
 - Use o ícone do WhatsApp **só** em botões que abrem o WhatsApp.
-- Todo CTA de agendamento aponta para `https://wa.me/5565998682998` e leva `data-cta="<local>"` para o rastreamento.
+- Todo CTA de agendamento aponta para `https://wa.me/5565996822998` e leva `data-cta="<local>"` para o rastreamento.
 - **Todo link de WhatsApp abre em nova aba:** `target="_blank" rel="noopener"` (CTAs, botão flutuante, contato, redes e rodapé).
 - **No máximo 1 CTA por seção.** A home tem o botão flutuante de WhatsApp e de 4 a 5 CTAs no corpo (hero, depois dos sintomas, depois dos depoimentos, depois dos passos e no fechamento).
 
@@ -255,5 +255,5 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 - O conteúdo do site antigo é mantido integralmente. Só corrigimos erros evidentes (crase, aspas soltas, contagem "6 passos" com 5 listados, grafia do nome).
 - O nome padrão é **Dra. Ana Luíza Martins David**. A marca gráfica (logo) segue "Ana Luiza".
-- O telefone é exibido como **(65) 99868-2998**.
+- O telefone é exibido como **(65) 99682-2998**.
 - Fala em segunda pessoa ("você", "seu filho"), em tom próximo e empático, sem promessas absolutas além das que já constam no conteúdo original.
