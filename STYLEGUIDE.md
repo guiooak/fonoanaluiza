@@ -228,7 +228,11 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - **Deploy automático:** todo push na `main` dispara `.github/workflows/deploy.yml`, que publica o site no GitHub Pages (https://guiooak.github.io/fonoanaluiza/).
 - O workflow publica só os arquivos do site (HTML, `assets/`, `sitemap.xml`, `robots.txt`); `.md`, `.claude/` e `_redirects` ficam de fora.
 - O GTM só carrega no domínio `fonoanaluizadavid.com.br` **e após o consentimento**, para que previews e o github.io não gerem visitas nem conversões falsas.
-- Domínio próprio: quando o DNS for apontado para o GitHub Pages, adicione o arquivo `CNAME` com `fonoanaluizadavid.com.br` e configure o domínio em Settings → Pages.
+- **Cartão de compartilhamento**: `assets/img/og-cover.jpg` (1200×630, JPG), usado por WhatsApp, Facebook, LinkedIn e X via Open Graph (`og:image` + dimensões + `og:image:alt`) e `twitter:card=summary_large_image`. Título e descrição do cartão vêm de `og:title`/`og:description` de cada página.
+- **Troca para o domínio próprio** (checklist):
+  1. Apontar o DNS para o GitHub Pages, criar o arquivo `CNAME` com `fonoanaluizadavid.com.br` e configurar o domínio em Settings → Pages.
+  2. Trocar `https://guiooak.github.io/fonoanaluiza` por `https://fonoanaluizadavid.com.br` em `og:url` e `og:image` de todas as páginas (enquanto o domínio aponta para o WordPress, o cartão precisa apontar para o github.io).
+  3. Atualizar o cache dos cartões no [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/).
 
 ## 11. Acessibilidade
 

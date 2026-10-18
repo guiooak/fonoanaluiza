@@ -604,10 +604,13 @@ a:hover { color: var(--navy-600); }
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   padding-bottom: var(--space-2);
-  align-items: start; /* cada card com a própria altura */
+  align-items: stretch; /* todos os cards da linha com a mesma altura */
 }
 .rail::-webkit-scrollbar { display: none; }
 .rail > * { scroll-snap-align: start; min-width: 0; }
+/* Depoimentos no trilho: coluna flexível, nome sempre alinhado na base do card */
+.rail > .testimonial { display: flex; flex-direction: column; }
+.rail > .testimonial .testimonial__name { margin-top: auto; }
 @media (min-width: 64rem) {
   .rail { grid-auto-flow: row; grid-template-columns: repeat(var(--rail-cols, 4), minmax(0, 1fr)); overflow: visible; }
 }
