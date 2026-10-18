@@ -18,27 +18,31 @@ Regras para implementar e manter o site. A referência visual viva é [`stylegui
 |---|---|---|
 | Marca | `--navy-800` `#172340` | seções escuras, bloco CTA, marca |
 | Fundo da página | `--sand-50` `#FBF9F6` | `body` |
-| Seção alternada | `--sand-100` `#F4F0EA` | `.section--alt` |
+| Seção alternada / tom claro | `--sand-100` `#F0E9DE` | `.section--alt`, pastilhas, painéis, hovers claros |
 | Superfície | `--sand-0` `#FFF` | cards, submenu |
 | Borda | `--sand-200` `#E9E3D9` | `--border` |
 | Títulos | `--ink-900` `#161D31` | |
 | Corpo | `--ink-700` `#3C4459` | |
 | Apoio | `--ink-500` `#5F677A` | legendas, notas |
-| Ação | `--green-600` `#1A7F37` / hover `--green-700` | **somente** botões de agendamento |
-| Acento | `--mist-500` / `--mist-100` | eyebrow, ícones, pastilhas, callout |
-| Atenção | `--amber-500` / `--amber-100` | `.callout--warm` (avisos neutros, nunca alarmistas) |
+| Ação | `--green-600` `#1E6E4E` (esmeralda) / hover `--green-700` `#175A3F` | **somente** botões de agendamento e check da `.checklist` |
+| Acento | `--mist-500` `#46698F` | eyebrow, ícones de contato (único tom frio fora do navy) |
+| Atenção | `--amber-500` `#A26A12` / `--amber-100` | `.callout--warm` (avisos neutros, nunca alarmistas) |
 | Faixa | `--navy-900` | `.strip` |
 | Rodapé | `--navy-950` | `.site-footer` |
 
 - Use os **papéis semânticos** (`--color-heading`, `--color-text`, `--color-muted`, `--color-border`, `--color-surface`, `--color-accent`) nos componentes. Assim, `.section--dark` e `.theme-dark` invertem tudo sozinhos.
-- O verde fica reservado a ações. Não o use em títulos, ícones decorativos ou fundos (a exceção são os ícones de check da `.checklist`, que usam verde para sinalizar benefício).
+- O esmeralda fica reservado a ações. Não o use em títulos, ícones decorativos ou fundos (a exceção são os ícones de check da `.checklist`, que usam verde para sinalizar benefício).
+- **Em fundo navy** (`.section--dark`, `.theme-dark`, `.cta-block`) o botão primário vira **creme com texto navy**, automaticamente. Verde sobre navy tem só 2.5:1 de separação.
+- **Uma só família de tons claros: sand.** Não existem tons claros frios (azul-gelo, navy-50). Pastilhas, painéis do recorte, hovers e fundos de mídia usam `--sand-100`; bordas e seleção usam `--sand-200`.
+- **Hierarquia de superfícies:** fundo `sand-50` → seção alternada `sand-100` → card `sand-0` (branco). O card sempre se apoia em borda + sombra; nunca coloque card branco direto em fundo branco.
+- Foco: `--color-focus` = `navy-600` (8.3:1) em fundo claro e `#9FB8D6` em fundo navy.
 - O `#25D366` do WhatsApp aparece apenas no botão flutuante.
 - Duas seções navy nunca ficam seguidas. A sequência típica é sand-50 → sand-100 → navy → sand-50.
 - O contraste mínimo é AA: texto normal 4.5:1 e texto grande 3:1. Sobre navy, use `--navy-100` ou branco, nunca cinza médio.
 
 ## 3. Tipografia
 
-- **Sora** (300–600): títulos H1–H4, números (`.stat__value`, passos) e citação.
+- **Sora** (300–600): títulos H1–H4, números (`.stat__value`, passos) e citação. **H1 e H2 em peso 500** (refinado em tamanho grande); H3, H4 e títulos de card em 600.
 - **Inter** (400–600): texto, botões, navegação e eyebrow.
 - Carregadas via Google Fonts com `display=swap`.
 
@@ -106,16 +110,16 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - O sprite fica em `assets/img/icons.svg`, com traço de 1.75px, 24×24 e `currentColor`.
 - Uso: `<svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#nome"/></svg>`.
 - Ícone decorativo leva `aria-hidden="true"`. Botão só com ícone leva `aria-label`.
-- Ícone de destaque fica dentro de `.icon-badge` (pastilha 48px mist-100).
+- Ícone de destaque fica dentro de `.icon-badge` (pastilha 48px sand-100, ícone navy).
 - Os ícones substituem os PNGs antigos: relógio → `clock`, cartão → `credit-card`, selo → `shield-check`, calendário → `calendar`, alerta 3D → `.stat` ou `.callout`.
 - Para ícone novo, use o estilo Lucide (lucide.dev) e copie o `<path>` para um novo `<symbol>`.
 
 ## 7. Componentes
 
 ### Botões
-- `.btn`: primário verde, rótulo **"Agendar consulta"**. Ele substitui "AGENDAR CONSULTA PARTICULAR COM A ESPECIALISTA".
+- `.btn`: primário esmeralda (creme em fundo navy), rótulo **"Agendar consulta"**. Ele substitui "AGENDAR CONSULTA PARTICULAR COM A ESPECIALISTA".
 - `.btn--lg`: hero e CTA de fechamento. `.btn--sm`: header. `.btn--block`: menu mobile.
-- `.btn--secondary`: ação alternativa ("Conhecer o Método ACC"). Fica no máximo um por grupo e sempre ao lado de um primário.
+- `.btn--secondary`: contorno `#7A8399` (≥3:1 contra o fundo), ação alternativa ("Conhecer o Método ACC"). Fica no máximo um por grupo e sempre ao lado de um primário.
 - `.link-arrow`: navegação para outra página ou seção ("Saiba mais →").
 - Use o ícone do WhatsApp **só** em botões que abrem o WhatsApp.
 - Todo CTA de agendamento aponta para `https://wa.me/5565998682998` e leva `data-cta="<local>"` para o rastreamento.
@@ -134,7 +138,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 ### Destaques
 - `.strip`: faixa logo abaixo do hero com informações de atendimento.
 - `.stat`: dado de impacto (20% / ASHA), sempre em seção navy, um por página.
-- `.callout`: observação importante dentro do texto. `.callout--warm` serve para avisos práticos.
+- `.callout`: observação importante dentro do texto — fundo branco, borda sand-200, ícone navy. `.callout--warm` (âmbar) serve para avisos práticos.
 - `.quote`: frase de efeito da Dra., uma por seção.
 
 ### Passos (`.steps` > `.step`)
@@ -144,7 +148,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 ### Mídia
 - `.media` + `--portrait` (4:5) / `--square` / `--wide` (16:9) para fotos com fundo.
-- `.cutout` serve para retrato recortado (PNG/WebP com transparência) sobre uma forma suave.
+- `.cutout` serve para retrato recortado (PNG/WebP com transparência) sobre um painel sand-100 → sand-200 (navy em seção escura).
 - Imagens: WebP com `srcset` (640w + 960–1200w), `width`/`height` sempre preenchidos e `loading="lazy"` em tudo que estiver abaixo da dobra.
 - `alt` descritivo em fotos de conteúdo. Imagem decorativa leva `alt=""`.
 
@@ -198,7 +202,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 - Cada página tem um `<h1>` e uma hierarquia sem pular níveis.
 - O skip link "Pular para o conteúdo" é o primeiro elemento do `<body>`.
-- O foco fica sempre visível (`:focus-visible` com contorno azul de 2px). Não remova `outline`.
+- O foco fica sempre visível (`:focus-visible` com contorno de 2px em `--color-focus`). Não remova `outline`.
 - A área de toque mínima é 44px (botões, ícones sociais, toggle do menu).
 - Dropdown e menu mobile usam `aria-expanded`/`aria-controls` e fecham com `Esc`.
 - Vídeos têm `aria-label` descritivo e iframes têm `title`.
