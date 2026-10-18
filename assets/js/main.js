@@ -80,6 +80,86 @@
     }, { once: true });
   });
 
+  /* FAQ: accordion exclusivo com animação de altura ------------------------
+     Sem JS, o atributo name="faq" dos <details> já garante um aberto por vez. */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var DURATION = 320;
+
+  document.querySelectorAll(".faq").forEach(function (group) {
+    var items = [];
+
+    group.querySelectorAll("details").forEach(function (details) {
+      var summary = details.querySelector("summary");
+      var content = details.querySelector(".faq__answer");
+      if (!summary || !content || !content.animate) return;
+
+      /* O JS assume a exclusividade: com name="" o navegador fecharia os outros sem animar */
+      details.removeAttribute("name");
+
+      var animation = null;
+      var fallback = null;
+
+      var run = function (from, to, onDone) {
+        if (animation) { animation.onfinish = null; animation.cancel(); }
+        clearTimeout(fallback);
+        var done = function () {
+          clearTimeout(fallback);
+          if (animation) { animation.onfinish = null; animation = null; }
+          if (onDone) onDone();
+        };
+        if (reduceMotion.matches) { done(); return; }
+        animation = content.animate(
+          { height: [from + "px", to + "px"], opacity: [from ? 1 : 0, to ? 1 : 0] },
+          { duration: DURATION, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+        );
+        animation.onfinish = done;
+        /* Em aba de segundo plano a animação pode não avançar: garante o estado final */
+        fallback = setTimeout(function () {
+          if (animation) animation.cancel();
+          done();
+        }, DURATION + 120);
+      };
+
+      var isOpen = function () {
+        return details.open && !details.classList.contains("is-closing");
+      };
+
+      var open = function () {
+        var closing = details.classList.contains("is-closing");
+        var from = closing ? content.getBoundingClientRect().height : 0;
+        details.classList.remove("is-closing");
+        details.open = true;
+        summary.setAttribute("aria-expanded", "true");
+        run(from, content.scrollHeight);
+      };
+
+      var close = function () {
+        if (!isOpen()) return;
+        details.classList.add("is-closing");
+        summary.setAttribute("aria-expanded", "false");
+        run(content.getBoundingClientRect().height, 0, function () {
+          details.open = false;
+          details.classList.remove("is-closing");
+        });
+      };
+
+      summary.setAttribute("aria-expanded", String(details.open));
+      items.push({ details: details, close: close });
+
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (isOpen()) {
+          close();
+        } else {
+          items.forEach(function (item) {
+            if (item.details !== details) item.close();
+          });
+          open();
+        }
+      });
+    });
+  });
+
   /* Animação de entrada ---------------------------------------------------- */
   var revealEls = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window && revealEls.length) {

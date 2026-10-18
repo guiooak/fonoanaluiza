@@ -670,9 +670,10 @@ a:hover { color: var(--navy-600); }
     linear-gradient(currentColor, currentColor) center / 1.5px 0.75rem no-repeat;
   transition: transform var(--duration) var(--ease);
 }
-.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details[open]:not(.is-closing) summary::after { transform: rotate(45deg); }
 .faq summary:hover { color: var(--navy-600); }
-.faq__answer { padding-bottom: var(--space-6); max-width: 60ch; }
+.faq__answer { max-width: 60ch; overflow: hidden; } /* altura animada via JS: sem padding aqui, para chegar a 0 */
+.faq__answer > :last-child { padding-bottom: var(--space-6); }
 
 /* 5.12 Lista de contato ---------------------------------------------------- */
 .contact-list { display: grid; gap: var(--space-4); padding: 0; list-style: none; }

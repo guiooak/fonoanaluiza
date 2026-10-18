@@ -172,7 +172,8 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 ### FAQ (`.faq`)
 - `<details><summary>Pergunta</summary><div class="faq__answer">…</div></details>`.
-- Não exige JS. Só a primeira pergunta pode vir aberta (`open`), e só quando fizer sentido.
+- **Accordion exclusivo:** abrir uma pergunta fecha as outras do mesmo `.faq`. Todos os `<details>` do grupo levam o mesmo `name` (ex.: `name="faq"`), o que garante isso nativamente sem JS; com JS o comportamento é animado.
+- Funciona sem JS (`<details>` nativo). Com JS, abrir/fechar anima a altura e a opacidade da resposta (320ms, `--ease`) e o "+" gira para "×"; respeita `prefers-reduced-motion`. Só a primeira pergunta pode vir aberta (`open`), e só quando fizer sentido.
 
 ### Contato
 - `.contact-list` mostra ícone + texto (endereço, horário, WhatsApp, e-mail).
