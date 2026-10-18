@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Style guide — Fono Ana Luiza David</title>
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <style>
+    /* Estilos exclusivos do style guide (prefixo sg-) — não usar no site */
+    html { scroll-padding-top: calc(var(--header-h) + 3.5rem); }
+    .sg-nav { position: sticky; top: var(--header-h); z-index: 10; background: var(--sand-50); border-bottom: var(--border); }
+    .sg-nav ul { display: flex; gap: var(--space-1); overflow-x: auto; margin: 0; padding: var(--space-2) 0; list-style: none; scrollbar-width: none; }
+    .sg-nav a { display: block; padding: var(--space-2) var(--space-3); border-radius: var(--radius-pill); font-size: var(--step--1); font-weight: 500; color: var(--ink-700); text-decoration: none; white-space: nowrap; }
+    .sg-nav a:hover { background: var(--navy-50); color: var(--ink-900); }
+    .sg-block { padding-block: var(--space-16); border-bottom: var(--border); }
+    .sg-block > .container > header { display: grid; gap: var(--space-2); margin-bottom: var(--space-12); max-width: 44rem; }
+    .sg-block > .container > header h2 { font-size: var(--step-3); }
+    .sg-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; color: var(--ink-500); }
+    .sg-sub { font-size: var(--step--1); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-500); margin: var(--space-12) 0 var(--space-6); }
+    .sg-sub:first-of-type { margin-top: 0; }
+    .sg-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: var(--space-4); }
+    .sg-swatch { border-radius: var(--radius-md); overflow: hidden; border: var(--border); background: var(--sand-0); }
+    .sg-swatch > div { height: 5rem; }
+    .sg-swatch p { padding: var(--space-3); font-size: var(--step--1); line-height: 1.4; }
+    .sg-swatch p b { display: block; }
+    .sg-type-row { display: grid; gap: var(--space-2); padding-block: var(--space-6); border-bottom: var(--border); }
+    @media (min-width: 48rem) { .sg-type-row { grid-template-columns: 12rem 1fr; align-items: baseline; } }
+    .sg-space-row { display: grid; grid-template-columns: 6rem 4rem 1fr; gap: var(--space-4); align-items: center; padding-block: var(--space-2); }
+    .sg-space-bar { height: 0.75rem; background: var(--mist-500); border-radius: 2px; }
+    .sg-demo { padding: var(--space-8); border: 1px dashed var(--sand-300); border-radius: var(--radius-md); background: var(--sand-0); }
+    .sg-demo--dark { background: var(--navy-800); border-color: var(--navy-600); }
+    .sg-shape { display: grid; place-items: center; height: 7rem; background: var(--sand-0); border: var(--border); font-size: var(--step--1); color: var(--ink-500); }
+    .sg-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); gap: var(--space-4); }
+    .sg-icons div { display: grid; justify-items: center; gap: var(--space-2); padding: var(--space-4); border: var(--border); border-radius: var(--radius-md); background: var(--sand-0); color: var(--navy-800); }
+    .sg-icons .icon { width: 1.5rem; height: 1.5rem; }
+    .sg-rhythm { position: relative; }
+    .sg-rhythm-tag { position: absolute; right: var(--space-4); padding: 2px 8px; border-radius: 4px; background: #ffe7f0; color: #b0004d; font: 600 0.6875rem/1.4 ui-monospace, Menlo, monospace; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- HEADER (componente real) -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/" aria-label="Ana Luiza Martins David, fonoaudióloga — início">
+        <img src="/assets/img/logo-icone.png" alt="" width="524" height="264">
+        <span class="brand__name" aria-hidden="true">Ana Luiza Martins David<small>Fonoaudióloga</small></span>
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="/">Início</a></li>
+          <li class="nav__item--has-menu">
+            <button class="nav__link" type="button" aria-expanded="false" aria-controls="submenu-exames">
+              Exames <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#chevron-down"/></svg>
+            </button>
+            <ul class="submenu" id="submenu-exames">
+              <li><a href="/audiometria/">Audiometria <span>Tonal, vocal e infantil</span></a></li>
+              <li><a href="/imitanciometria/">Imitanciometria <span>Saúde da orelha média</span></a></li>
+              <li><a href="/processamento-auditivo-central/">Processamento Auditivo Central <span>Avaliação do PAC</span></a></li>
+            </ul>
+          </li>
+          <li><a class="nav__link" href="/#metodo">Método ACC</a></li>
+          <li><a class="nav__link" href="/#sobre">Sobre</a></li>
+          <li><a class="nav__link" href="/#localizacao">Localização</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--sm site-header__cta" href="https://wa.me/5565998682998" data-cta="header">
+        <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
+        <svg class="icon icon-open" aria-hidden="true"><use href="/assets/img/icons.svg#menu"/></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="/assets/img/icons.svg#close"/></svg>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu móvel">
+    <ul>
+      <li><a href="/">Início</a></li>
+      <li><span class="mobile-nav__label">Exames</span>
+        <ul class="mobile-nav__sub">
+          <li><a href="/audiometria/">Audiometria</a></li>
+          <li><a href="/imitanciometria/">Imitanciometria</a></li>
+          <li><a href="/processamento-auditivo-central/">Processamento Auditivo Central</a></li>
+        </ul>
+      </li>
+      <li><a href="/#metodo">Método ACC</a></li>
+      <li><a href="/#sobre">Sobre</a></li>
+      <li><a href="/#localizacao">Localização</a></li>
+    </ul>
+    <a class="btn btn--lg btn--block" href="https://wa.me/5565998682998" data-cta="menu-mobile">
+      <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta
+    </a>
+  </nav>
+
+  <nav class="sg-nav" aria-label="Seções do style guide">
+    <div class="container">
+      <ul>
+        <li><a href="#principios">Princípios</a></li>
+        <li><a href="#cores">Cores</a></li>
+        <li><a href="#tipografia">Tipografia</a></li>
+        <li><a href="#espacamento">Espaçamento</a></li>
+        <li><a href="#forma">Forma</a></li>
+        <li><a href="#icones">Ícones</a></li>
+        <li><a href="#botoes">Botões</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#listas">Listas</a></li>
+        <li><a href="#destaques">Destaques</a></li>
+        <li><a href="#passos">Passos</a></li>
+        <li><a href="#midia">Mídia</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#secoes">Seções</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="conteudo">
+
+    <!-- INTRO -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Style guide · v1</span>
+          <h1>Fono Ana Luiza David</h1>
+          <p class="lead">Referência viva do design system do site. Tudo nesta página usa o mesmo <code>styles.css</code> do site — se algo mudar aqui, muda lá. Regras de uso detalhadas em <code>STYLEGUIDE.md</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINCÍPIOS -->
+    <section class="sg-block" id="principios">
+      <div class="container">
+        <header><span class="eyebrow">01</span><h2>Princípios</h2></header>
+        <div class="grid grid--3">
+          <div class="card card--flat">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#heart"/></svg></span>
+            <h3 class="card__title">Acolhedor, não infantil</h3>
+            <p class="card__text">Fala com mães preocupadas e com adultos. Tons quentes, fotos reais, linguagem próxima — sem cores gritantes nem ilustrações infantis.</p>
+          </div>
+          <div class="card card--flat">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#target"/></svg></span>
+            <h3 class="card__title">Clareza clínica</h3>
+            <p class="card__text">Uma ideia por bloco. Títulos curtos, textos escaneáveis, hierarquia evidente. Confiança vem da organização, não do excesso.</p>
+          </div>
+          <div class="card card--flat">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check-circle"/></svg></span>
+            <h3 class="card__title">Consistência rígida</h3>
+            <p class="card__text">Só tokens. Nenhum espaçamento, cor ou raio fora da escala. Um botão primário, um card, um jeito de fazer cada coisa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORES -->
+    <section class="sg-block" id="cores">
+      <div class="container">
+        <header><span class="eyebrow">02</span><h2>Cores</h2><p class="muted">Navy é a marca. Verde é exclusivo de ação (CTA). Neutros quentes substituem os cinzas frios do site antigo.</p></header>
+
+        <h3 class="sg-sub">Marca — Navy</h3>
+        <div class="sg-swatches">
+          <div class="sg-swatch"><div style="background:var(--navy-950)"></div><p><b>navy-950</b><span class="sg-label">#0B1226 · rodapé</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--navy-900)"></div><p><b>navy-900</b><span class="sg-label">#111A33 · faixa</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--navy-800)"></div><p><b>navy-800</b><span class="sg-label">#172340 · marca</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--navy-700)"></div><p><b>navy-700</b><span class="sg-label">#24335A</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--navy-600)"></div><p><b>navy-600</b><span class="sg-label">#3A4A74 · hover</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--navy-300)"></div><p><b>navy-300</b><span class="sg-label">#A7B1C9 · texto apoio escuro</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--navy-100)"></div><p><b>navy-100</b><span class="sg-label">#E6EAF3</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--navy-50)"></div><p><b>navy-50</b><span class="sg-label">#F2F4F9 · hover claro</span></p></div>
+        </div>
+
+        <h3 class="sg-sub">Ação — Verde</h3>
+        <div class="sg-swatches">
+          <div class="sg-swatch"><div style="background:var(--green-700)"></div><p><b>green-700</b><span class="sg-label">#136C2D · hover</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--green-600)"></div><p><b>green-600</b><span class="sg-label">#1A7F37 · CTA (AA 5.0:1)</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--green-500)"></div><p><b>green-500</b><span class="sg-label">#23A047 · ícone check</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--green-100)"></div><p><b>green-100</b><span class="sg-label">#E3F3E8</span></p></div>
+          <div class="sg-swatch"><div style="background:#25d366"></div><p><b>whatsapp</b><span class="sg-label">#25D366 · só botão flutuante</span></p></div>
+        </div>
+
+        <h3 class="sg-sub">Neutros quentes e texto</h3>
+        <div class="sg-swatches">
+          <div class="sg-swatch"><div style="background:var(--sand-0)"></div><p><b>sand-0</b><span class="sg-label">#FFFFFF · superfície</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--sand-50)"></div><p><b>sand-50</b><span class="sg-label">#FBF9F6 · fundo</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--sand-100)"></div><p><b>sand-100</b><span class="sg-label">#F4F0EA · seção alt.</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--sand-200)"></div><p><b>sand-200</b><span class="sg-label">#E9E3D9 · borda</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--sand-300)"></div><p><b>sand-300</b><span class="sg-label">#D8D0C3 · borda forte</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--ink-900)"></div><p><b>ink-900</b><span class="sg-label">#161D31 · títulos</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--ink-700)"></div><p><b>ink-700</b><span class="sg-label">#3C4459 · corpo</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--ink-500)"></div><p><b>ink-500</b><span class="sg-label">#5F677A · apoio (AA)</span></p></div>
+        </div>
+
+        <h3 class="sg-sub">Acento e feedback</h3>
+        <div class="sg-swatches">
+          <div class="sg-swatch"><div style="background:var(--mist-500)"></div><p><b>mist-500</b><span class="sg-label">#4A6E97 · eyebrow, ícones (AA 5.0:1)</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--mist-100)"></div><p><b>mist-100</b><span class="sg-label">#E5EDF6 · pastilhas, callout</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--amber-500)"></div><p><b>amber-500</b><span class="sg-label">#C98A1B · atenção</span></p></div>
+          <div class="sg-swatch"><div style="background:var(--amber-100)"></div><p><b>amber-100</b><span class="sg-label">#FBF1DE</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOGRAFIA -->
+    <section class="sg-block" id="tipografia">
+      <div class="container">
+        <header><span class="eyebrow">03</span><h2>Tipografia</h2><p class="muted"><b>Sora</b> (300–600) para títulos e números. <b>Inter</b> (400–600) para texto e interface. Escala modular 1.25, fluida entre 360 e 1280px.</p></header>
+
+        <div class="sg-type-row"><span class="sg-label">h1 · step-5 · Sora 600<br>38→60px / 1.15 / −3%</span><h1 class="mt-0">Seu filho parece não escutar direito?</h1></div>
+        <div class="sg-type-row"><span class="sg-label">h2 · step-4 · Sora 600<br>32→46px / 1.15 / −2%</span><h2 class="mt-0">Como será seu processo de tratamento?</h2></div>
+        <div class="sg-type-row"><span class="sg-label">h3 · step-2 · Sora 600<br>21→26px / 1.3</span><h3>Avaliação auditiva e do Processamento Auditivo</h3></div>
+        <div class="sg-type-row"><span class="sg-label">h4 · step-1 · Sora 600<br>18→21px / 1.3</span><h4>Pagamento facilitado no cartão de crédito</h4></div>
+        <div class="sg-type-row"><span class="sg-label">.lead · step-1 · Inter 400<br>18→21px / 1.6</span><p class="lead">Descubra se a causa é uma dificuldade auditiva e veja como ajudá-lo a melhorar em até 3 meses com nosso treinamento auditivo.</p></div>
+        <div class="sg-type-row"><span class="sg-label">body · step-0 · Inter 400<br>16→17px / 1.65</span><p>Avaliamos e reabilitamos o processamento auditivo do seu filho, através de um treinamento especializado para que ele compreenda melhor as informações e tenha mais facilidade na escola e na escuta do dia a dia. <strong>Negrito em 600</strong> e <a href="#">links sublinhados</a>.</p></div>
+        <div class="sg-type-row"><span class="sg-label">.small · step--1 · Inter<br>13→14px</span><p class="small muted">Atendimento de segunda a sexta-feira, das 8h às 11h e das 13h às 17h.</p></div>
+        <div class="sg-type-row"><span class="sg-label">.eyebrow · step--1 · Inter 600<br>caixa alta / +12%</span><span class="eyebrow">Método ACC</span></div>
+        <div class="sg-type-row"><span class="sg-label">.stat__value · Sora 300<br>64→128px</span><span class="stat__value">20%</span></div>
+      </div>
+    </section>
+
+    <!-- ESPAÇAMENTO -->
+    <section class="sg-block" id="espacamento">
+      <div class="container">
+        <header><span class="eyebrow">04</span><h2>Espaçamento</h2><p class="muted">Base de 4px. Só estes valores existem. Seções usam <code>--section-y</code> (64→128px); laterais usam <code>--gutter</code> (16→32px).</p></header>
+        <div class="sg-space-row"><span class="sg-label">--space-1</span><span class="sg-label">4px</span><div class="sg-space-bar" style="width:var(--space-1)"></div></div>
+        <div class="sg-space-row"><span class="sg-label">--space-2</span><span class="sg-label">8px</span><div class="sg-space-bar" style="width:var(--space-2)"></div></div>
+        <div class="sg-space-row"><span class="sg-label">--space-3</span><span class="sg-label">12px</span><div class="sg-space-bar" style="width:var(--space-3)"></div></div>
+        <div class="sg-space-row"><span class="sg-label">--space-4</span><span class="sg-label">16px</span><div class="sg-space-bar" style="width:var(--space-4)"></div></div>
+        <div class="sg-space-row"><span class="sg-label">--space-6</span><span class="sg-label">24px</span><div class="sg-space-bar" style="width:var(--space-6)"></div></div>
+        <div class="sg-space-row"><span class="sg-label">--space-8</span><span class="sg-label">32px</span><div class="sg-space-bar" style="width:var(--space-8)"></div></div>
+        <div class="sg-space-row"><span class="sg-label">--space-12</span><span class="sg-label">48px</span><div class="sg-space-bar" style="width:var(--space-12)"></div></div>
+        <div class="sg-space-row"><span class="sg-label">--space-16</span><span class="sg-label">64px</span><div class="sg-space-bar" style="width:var(--space-16)"></div></div>
+        <div class="sg-space-row"><span class="sg-label">--space-24</span><span class="sg-label">96px</span><div class="sg-space-bar" style="width:var(--space-24)"></div></div>
+        <div class="sg-space-row"><span class="sg-label">--space-32</span><span class="sg-label">128px</span><div class="sg-space-bar" style="width:var(--space-32)"></div></div>
+
+        <h3 class="sg-sub">Regras de ritmo vertical</h3>
+        <div class="grid grid--2">
+          <div class="sg-demo sg-rhythm">
+            <div class="section-head mt-0" style="margin-bottom:0">
+              <span class="eyebrow">Eyebrow</span>
+              <h2 class="h3">Título de seção</h2>
+              <p class="lead">Lead logo abaixo do título.</p>
+            </div>
+          </div>
+          <ul class="checklist">
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span><b>eyebrow → título → lead:</b> <code>space-4</code> (+<code>space-2</code> antes do lead)</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span><b>cabeçalho de seção → conteúdo:</b> <code>space-12</code></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span><b>parágrafo → parágrafo:</b> <code>space-4</code> (classe <code>.flow</code>)</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span><b>entre cards / colunas:</b> <code>space-6</code>; mídia ↔ texto: <code>space-16</code></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span><b>conteúdo → CTA:</b> <code>space-8</code>; padding interno de card: <code>space-8</code></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span><b>entre seções:</b> sempre <code>--section-y</code> — nunca margem solta</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMA -->
+    <section class="sg-block" id="forma">
+      <div class="container">
+        <header><span class="eyebrow">05</span><h2>Forma</h2><p class="muted">Três raios, três sombras, uma borda. Sombras são tingidas de navy, nunca pretas.</p></header>
+        <div class="grid grid--4">
+          <div class="sg-shape" style="border-radius:var(--radius-sm)">radius-sm · 8px<br>inputs, submenu</div>
+          <div class="sg-shape" style="border-radius:var(--radius-md)">radius-md · 16px<br>pastilhas, callout</div>
+          <div class="sg-shape" style="border-radius:var(--radius-lg)">radius-lg · 24px<br>cards, mídia</div>
+          <div class="sg-shape" style="border-radius:var(--radius-pill)">radius-pill<br>botões</div>
+          <div class="sg-shape" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)">shadow-sm · repouso</div>
+          <div class="sg-shape" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-md)">shadow-md · hover</div>
+          <div class="sg-shape" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)">shadow-lg · flutuantes</div>
+          <div class="sg-shape" style="border-radius:var(--radius-lg);border:1px solid var(--sand-200)">border · 1px sand-200</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÍCONES -->
+    <section class="sg-block" id="icones">
+      <div class="container">
+        <header><span class="eyebrow">06</span><h2>Ícones</h2><p class="muted">Traço 1.75px, cantos arredondados, 24×24, herdando <code>currentColor</code>. Sprite em <code>/assets/img/icons.svg</code>. Substituem os PNGs (relógio, cartão, selo, alerta, calendário).</p></header>
+        <div class="sg-icons">
+          <div><svg class="icon"><use href="/assets/img/icons.svg#ear"/></svg><span class="sg-label">ear</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#headphones"/></svg><span class="sg-label">headphones</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#graduation"/></svg><span class="sg-label">graduation</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#repeat"/></svg><span class="sg-label">repeat</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#noise"/></svg><span class="sg-label">noise</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#message"/></svg><span class="sg-label">message</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#users"/></svg><span class="sg-label">users</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#target"/></svg><span class="sg-label">target</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#trending-up"/></svg><span class="sg-label">trending-up</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#heart"/></svg><span class="sg-label">heart</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#clock"/></svg><span class="sg-label">clock</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#credit-card"/></svg><span class="sg-label">credit-card</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#shield-check"/></svg><span class="sg-label">shield-check</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#calendar"/></svg><span class="sg-label">calendar</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#monitor"/></svg><span class="sg-label">monitor</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#info"/></svg><span class="sg-label">info</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#alert"/></svg><span class="sg-label">alert</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#check"/></svg><span class="sg-label">check</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#check-circle"/></svg><span class="sg-label">check-circle</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#map-pin"/></svg><span class="sg-label">map-pin</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#mail"/></svg><span class="sg-label">mail</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#whatsapp"/></svg><span class="sg-label">whatsapp</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#instagram"/></svg><span class="sg-label">instagram</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#arrow-right"/></svg><span class="sg-label">arrow-right</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#play"/></svg><span class="sg-label">play</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#chevron-down"/></svg><span class="sg-label">chevron-down</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#menu"/></svg><span class="sg-label">menu</span></div>
+          <div><svg class="icon"><use href="/assets/img/icons.svg#close"/></svg><span class="sg-label">close</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTÕES -->
+    <section class="sg-block" id="botoes">
+      <div class="container">
+        <header><span class="eyebrow">07</span><h2>Botões e links</h2><p class="muted">Verde só em ações que levam ao agendamento. Rótulo curto em caixa normal: “Agendar consulta” substitui “AGENDAR CONSULTA PARTICULAR COM A ESPECIALISTA”.</p></header>
+        <div class="stack" style="--stack-gap:var(--space-8)">
+          <div class="sg-demo">
+            <div class="cluster">
+              <a class="btn btn--lg" href="#"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta</a>
+              <a class="btn" href="#">Agendar consulta</a>
+              <a class="btn btn--sm" href="#">Agendar</a>
+              <a class="btn btn--secondary" href="#">Conhecer o Método ACC</a>
+              <a class="btn" aria-disabled="true">Desabilitado</a>
+              <a class="link-arrow" href="#">Ver exames <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></a>
+            </div>
+            <p class="sg-label mt-6">.btn--lg (hero, CTA final) · .btn (padrão) · .btn--sm (header) · .btn--secondary · [aria-disabled] · .link-arrow</p>
+          </div>
+          <div class="sg-demo sg-demo--dark theme-dark">
+            <div class="cluster">
+              <a class="btn btn--lg" href="#"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta</a>
+              <a class="btn btn--secondary" href="#">Conhecer o Método ACC</a>
+              <a class="link-arrow" href="#">Ver exames <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></a>
+            </div>
+          </div>
+          <div class="sg-demo">
+            <div class="stack" style="--stack-gap:var(--space-3);justify-items:start;align-items:flex-start">
+              <a class="btn btn--lg" href="#"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta</a>
+              <p class="cta-note">Atendimento presencial em Cuiabá-MT e treinamentos online para todo o Brasil.</p>
+            </div>
+            <p class="sg-label mt-6">CTA + .cta-note — nota curta de apoio abaixo do botão (space-3)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="sg-block" id="cards">
+      <div class="container">
+        <header><span class="eyebrow">08</span><h2>Cards</h2><p class="muted">Um único card: radius-lg, borda sand-200, padding space-8, gap space-4. Pastilha de ícone opcional no topo.</p></header>
+        <div class="grid grid--4">
+          <article class="card">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#graduation"/></svg></span>
+            <h3 class="card__title">Seu filho está com dificuldades na escola…</h3>
+            <p class="card__text">Se ele tem dificuldades para entender os professores, se expressar com os colegas, acompanhar o conteúdo ou está com dificuldades para ler e escrever.</p>
+          </article>
+          <article class="card">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#repeat"/></svg></span>
+            <h3 class="card__title">Você sente que ele precisa que as pessoas repitam várias vezes…</h3>
+            <p class="card__text">Se ele tem dificuldade para seguir ordens/instruções simples e fica te olhando como se não estivesse ouvindo.</p>
+          </article>
+          <article class="card card--interactive">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#headphones"/></svg></span>
+            <h3 class="card__title">Audiometria</h3>
+            <p class="card__text">Testa qual é o som mais baixo que você consegue ouvir em diferentes frequências.</p>
+            <a class="link-arrow mt-0" href="#">Saiba mais <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></a>
+          </article>
+          <article class="card card--flat">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#credit-card"/></svg></span>
+            <h3 class="card__title">Pagamento facilitado</h3>
+            <p class="card__text">Avaliação em até 3x e sessões de protocolo em até 10x sem juros no cartão.</p>
+          </article>
+        </div>
+        <p class="sg-label mt-6">.card (sintomas) · .card--interactive (links para exames) · .card--flat (diferenciais, sem sombra)</p>
+      </div>
+    </section>
+
+    <!-- LISTAS -->
+    <section class="sg-block" id="listas">
+      <div class="container">
+        <header><span class="eyebrow">09</span><h2>Listas</h2></header>
+        <div class="grid grid--2">
+          <div>
+            <h3 class="sg-sub">.checklist — indicações, benefícios</h3>
+            <ul class="checklist">
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Avalia e identifica as dificuldades auditivas específicas do seu filho.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Estimula habilidades essenciais para uma escuta eficaz e ativa.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Melhora a compreensão da fala, a atenção e o desempenho escolar.</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="sg-sub">.def-list — termo + explicação</h3>
+            <dl class="def-list">
+              <div><dt>Audiometria Tonal</dt><dd>Você vai usar fones de ouvido e ouvir sons em diferentes volumes e tipos (agudos e graves).</dd></div>
+              <div><dt>Audiometria Vocal</dt><dd>Você vai escutar palavras em volumes diferentes para ver como consegue entender o que está sendo dito.</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTAQUES -->
+    <section class="sg-block" id="destaques">
+      <div class="container">
+        <header><span class="eyebrow">10</span><h2>Destaques</h2><p class="muted">Faixa, estatística, callout e citação. Substituem o ícone de alerta 3D e os blocos de texto em caixa alta.</p></header>
+
+        <h3 class="sg-sub">.strip — faixa informativa sob o hero</h3>
+        <div class="strip" style="border-radius:var(--radius-md)">
+          <div class="cluster">
+            <span class="cluster" style="--cluster-gap:var(--space-2)"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg> Atendimento adulto e infantil presencial em Cuiabá-MT</span>
+            <span class="cluster" style="--cluster-gap:var(--space-2)"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#monitor"/></svg> Treinamentos auditivos online para todo o Brasil</span>
+          </div>
+        </div>
+
+        <h3 class="sg-sub">.stat — dado de impacto (em seção navy)</h3>
+        <div class="sg-demo sg-demo--dark theme-dark">
+          <div class="stat">
+            <span class="eyebrow">Mãe, preste atenção neste dado</span>
+            <span class="stat__value">20%</span>
+            <p class="stat__label">da população tem Transtorno do Processamento Auditivo Central (TPAC).</p>
+            <p class="stat__source">Estimativa da American Speech-Language-Hearing Association (ASHA)</p>
+          </div>
+        </div>
+
+        <div class="grid grid--2 mt-12">
+          <div>
+            <h3 class="sg-sub">.callout / .callout--warm</h3>
+            <div class="stack">
+              <div class="callout"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#info"/></svg><p>A avaliação do Processamento Auditivo pode ser o primeiro passo para melhorar o aprendizado e a comunicação do seu filho.</p></div>
+              <div class="callout callout--warm"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#alert"/></svg><p>Todo o processo pode durar até 2 horas ou ser dividido em mais de um dia.</p></div>
+            </div>
+          </div>
+          <div>
+            <h3 class="sg-sub">.quote — frase de efeito</h3>
+            <p class="quote">Cada pequena conquista que você tem é uma grande vitória para mim!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSOS -->
+    <section class="sg-block" id="passos">
+      <div class="container">
+        <header><span class="eyebrow">11</span><h2>Passos</h2><p class="muted">Timeline com numeração automática (CSS counter) em Sora light. Substitui os números PNG gigantes.</p></header>
+        <div class="container--narrow" style="padding:0">
+          <ol class="steps">
+            <li class="step"><div class="step__body"><h3 class="step__title">Consulta inicial</h3><p>Durante a consulta, vamos alinhar suas necessidades, coletar informações e definir o protocolo de avaliação e treinamento mais indicado para você.</p></div></li>
+            <li class="step"><div class="step__body"><h3 class="step__title">Avaliação auditiva e do Processamento Auditivo</h3><p>Faremos uma avaliação detalhada para entender como a audição e o processamento auditivo do seu filho estão funcionando.</p></div></li>
+            <li class="step"><div class="step__body"><h3 class="step__title">Devolutiva e definição do protocolo</h3><p>Após a avaliação, vamos conversar sobre os resultados e elaborar um plano de treinamento personalizado, caso seja necessário.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÍDIA -->
+    <section class="sg-block" id="midia">
+      <div class="container">
+        <header><span class="eyebrow">12</span><h2>Mídia</h2><p class="muted">Fotos sempre com radius-lg. Recortes (PNG sem fundo) ficam sobre uma forma suave. Vídeos carregam o player só no clique.</p></header>
+        <div class="grid grid--3" style="align-items:end">
+          <figure class="stack" style="--stack-gap:var(--space-3)">
+            <div class="cutout"><img src="/assets/img/dra-retrato-640.webp" alt="Dra. Ana Luíza Martins David" width="640" height="1018" loading="lazy"></div>
+            <figcaption class="sg-label">.cutout — retrato recortado</figcaption>
+          </figure>
+          <figure class="stack" style="--stack-gap:var(--space-3)">
+            <div class="media media--portrait"><img src="/assets/img/dra-paciente-640.webp" alt="Dra. Ana Luíza atendendo uma criança" width="640" height="916" loading="lazy"></div>
+            <figcaption class="sg-label">.media.media--portrait (4:5)</figcaption>
+          </figure>
+          <figure class="stack" style="--stack-gap:var(--space-3)">
+            <button class="video" type="button" data-vimeo="1085682696" aria-label="Assistir ao vídeo: como chegar ao consultório">
+              <img src="/assets/img/video-localizacao.webp" alt="" width="640" height="360" loading="lazy">
+              <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#play"/></svg></span></span>
+              <span class="video__label">Como chegar</span>
+            </button>
+            <figcaption class="sg-label">.video (16:9) — clique carrega o Vimeo</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="sg-block section--dark" id="depoimentos">
+      <div class="container">
+        <header><span class="eyebrow">13</span><h2>Depoimentos</h2><p class="muted">Vídeo vertical + título + resumo + nome. Em telas pequenas viram um trilho com scroll horizontal (.rail).</p></header>
+        <div class="rail" style="--rail-cols:3">
+          <article class="testimonial">
+            <button class="video video--vertical" type="button" data-vimeo="1090846076" data-hash="98752c123f" aria-label="Assistir ao depoimento sobre a Rafaela">
+              <img src="/assets/img/video-rafaela.webp" alt="" width="640" height="1138" loading="lazy">
+              <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#play"/></svg></span></span>
+            </button>
+            <h3 class="testimonial__title">Trocas na escrita e leitura (T/D, V/F) e dificuldade em seguir comandos.</h3>
+            <p class="testimonial__text">Diagnosticada com alteração no Processamento Auditivo Central, superou esses desafios com o Método ACC.</p>
+            <p class="testimonial__name">Rafaela, 10 anos</p>
+          </article>
+          <article class="testimonial">
+            <button class="video video--vertical" type="button" data-vimeo="1090845994" data-hash="78cd6ad2b2" aria-label="Assistir ao depoimento sobre a Isadora">
+              <img src="/assets/img/video-isadora.webp" alt="" width="640" height="894" loading="lazy">
+              <span class="video__play"><span><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#play"/></svg></span></span>
+            </button>
+            <h3 class="testimonial__title">Falta de foco e atenção nas atividades escolares e notas baixas.</h3>
+            <p class="testimonial__text">Com o Método ACC, desenvolveu habilidades, aprendeu de forma mais eficiente e suas notas melhoraram significativamente.</p>
+            <p class="testimonial__name">Isadora, 10 anos</p>
+          </article>
+          <article class="testimonial">
+            <blockquote class="testimonial__quote">
+              <p>Como nunca é tarde para começar, atualmente estou acompanhado clinicamente e gozando de uma vida com mais compreensão e aceitação pessoal. […] Com o atendimento “ímpar” da fonoaudióloga Ana Luiza, que foi minha “personal do cérebro”, estimulou significativamente a minha neuroplasticidade através de sessões técnicas que me ajudaram a aceitar e compreender minhas “inabilidades” e adaptações que fiz ao longo da vida.</p>
+              <p>Incentivo todos os adultos a procurarem autoconhecimento e buscar uma boa qualidade de vida — e a fonoaudióloga Ana Luiza é a profissional que indico.</p>
+            </blockquote>
+            <h3 class="testimonial__title">Aos 50 anos, descobriu o TDAH e encontrou na fonoaudiologia um caminho.</h3>
+            <p class="testimonial__text">Após buscar ajuda para lapsos de memória e dificuldades de concentração, recebeu um diagnóstico tardio de TDAH.</p>
+            <p class="testimonial__name">Genésio, 50 anos</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sg-block" id="faq">
+      <div class="container container--narrow">
+        <header><span class="eyebrow">14</span><h2>FAQ</h2><p class="muted"><code>&lt;details&gt;</code> nativo — acessível e sem JavaScript.</p></header>
+        <div class="faq">
+          <details open>
+            <summary>Como saber se preciso de uma avaliação auditiva?</summary>
+            <div class="faq__answer"><p>Se você tem dificuldade para entender o que as pessoas falam, principalmente em lugares com muito ruído, ou precisa pedir para repetir várias vezes, pode ser um sinal de que sua audição não está funcionando da forma ideal.</p></div>
+          </details>
+          <details>
+            <summary>Você atende por algum convênio?</summary>
+            <div class="faq__answer"><p>No momento, as consultas são realizadas de forma particular. Se você tiver interesse, podemos conversar sobre as opções de pagamento disponíveis.</p></div>
+          </details>
+          <details>
+            <summary>Qual a forma de pagamento?</summary>
+            <div class="faq__answer"><p>Dinheiro, Pix, transferência bancária e cartão de crédito e débito, com parcelamento no cartão.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="sg-block" id="contato">
+      <div class="container">
+        <header><span class="eyebrow">15</span><h2>Contato e localização</h2></header>
+        <div class="split">
+          <div class="stack" style="--stack-gap:var(--space-8)">
+            <ul class="contact-list">
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg><span>CEDAP — Av. Haiti, 436, Jardim das Américas, Cuiabá/MT</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#clock"/></svg><span>Segunda a sexta, das 8h às 11h e das 13h às 17h</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg><a href="https://wa.me/5565998682998">(65) 99868-2998</a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg><a href="mailto:fonoanaluizadavid@gmail.com">fonoanaluizadavid@gmail.com</a></li>
+            </ul>
+            <div class="social">
+              <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
+              <a href="https://wa.me/5565998682998" aria-label="WhatsApp"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg></a>
+            </div>
+          </div>
+          <div class="map">
+            <iframe title="Mapa: CEDAP, Av. Haiti, 436, Cuiabá" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Haiti,+436+-+Jardim+das+Am%C3%A9ricas,+Cuiab%C3%A1+-+MT&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÕES -->
+    <section class="sg-block" id="secoes" style="border-bottom:0;padding-bottom:0">
+      <div class="container">
+        <header><span class="eyebrow">16</span><h2>Seções compostas</h2><p class="muted">Exemplos de como os componentes se combinam. Fundos alternam com propósito: claro (sand-50) → alternado (sand-100) → navy para momentos de ênfase. Nunca duas seções navy seguidas.</p></header>
+      </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content" data-reveal>
+          <span class="eyebrow">Fonoaudiologia · Processamento auditivo</span>
+          <h1>Mãe, seu filho parece não escutar direito e está com dificuldades escolares?</h1>
+          <p class="lead">Descubra se a causa é uma dificuldade auditiva e veja como ajudá-lo a melhorar em até 3 meses com nosso treinamento auditivo eficaz e personalizado.</p>
+          <div class="hero__actions">
+            <a class="btn btn--lg" href="https://wa.me/5565998682998" data-cta="hero"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta</a>
+            <a class="link-arrow" href="#metodo">Conhecer o Método ACC <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></a>
+          </div>
+        </div>
+        <div class="cutout" data-reveal>
+          <img src="/assets/img/dra-retrato-1200.webp" srcset="/assets/img/dra-retrato-640.webp 640w, /assets/img/dra-retrato-1200.webp 1200w" sizes="(min-width: 56rem) 40vw, 90vw" alt="Dra. Ana Luíza Martins David, fonoaudióloga" width="1200" height="1909">
+        </div>
+      </div>
+    </section>
+    <div class="strip">
+      <div class="container cluster">
+        <span class="cluster" style="--cluster-gap:var(--space-2)"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#map-pin"/></svg> Atendimento adulto e infantil presencial em Cuiabá-MT</span>
+        <span class="cluster" style="--cluster-gap:var(--space-2)"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#monitor"/></svg> Treinamentos auditivos online para todo o Brasil</span>
+      </div>
+    </div>
+
+    <!-- Split -->
+    <section class="section section--alt" id="metodo">
+      <div class="container split split--reverse">
+        <div class="media media--portrait" data-reveal>
+          <img src="/assets/img/dra-paciente-960.webp" alt="Dra. Ana Luíza em sessão com uma paciente" width="960" height="1375" loading="lazy">
+        </div>
+        <div class="flow" data-reveal>
+          <span class="eyebrow">Método ACC</span>
+          <h2>Audição, Cognição e Comunicação</h2>
+          <p class="lead">Se o seu filho tem dificuldades para entender o que ouve, demora a responder ou parece estar sempre distraído, o problema pode estar no Processamento Auditivo — a forma como o cérebro interpreta os sons.</p>
+          <ul class="checklist" style="--flow-space:var(--space-8)">
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Avalia e identifica as dificuldades auditivas específicas do seu filho.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Estimula habilidades essenciais para uma escuta eficaz e ativa.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg><span>Melhora a compreensão da fala, a atenção e o desempenho escolar.</span></li>
+          </ul>
+          <a class="btn" style="--flow-space:var(--space-8)" href="https://wa.me/5565998682998" data-cta="metodo">Agendar consulta</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA block -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-block" data-reveal>
+          <span class="eyebrow">Agende sua consulta</span>
+          <h2>Você ou quem você ama não precisa mais viver com dificuldades de comunicação e audição</h2>
+          <p>Não espere mais para buscar ajuda e melhorar a sua qualidade de vida. Cada dia que passa é um dia a mais lidando com essas dificuldades sem uma solução.</p>
+          <a class="btn btn--lg" href="https://wa.me/5565998682998" data-cta="cta-final"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg> Agendar consulta</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (componente real) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="site-footer__logo" href="/"><img src="/assets/img/logo-branco.png" alt="Ana Luiza Martins David — Fonoaudióloga" width="219" height="152"></a>
+          <p>Avaliação e reabilitação auditiva para crianças e adultos. Presencial em Cuiabá-MT e online para todo o Brasil.</p>
+        </div>
+        <div>
+          <h2>Exames</h2>
+          <ul class="stack" role="list" style="--stack-gap:var(--space-2)">
+            <li><a href="/audiometria/">Audiometria</a></li>
+            <li><a href="/imitanciometria/">Imitanciometria</a></li>
+            <li><a href="/processamento-auditivo-central/">Processamento Auditivo Central</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contato</h2>
+          <ul class="stack" role="list" style="--stack-gap:var(--space-2)">
+            <li><a href="https://wa.me/5565998682998">(65) 99868-2998</a></li>
+            <li><a href="mailto:fonoanaluizadavid@gmail.com">fonoanaluizadavid@gmail.com</a></li>
+            <li>Av. Haiti, 436 — Cuiabá/MT</li>
+          </ul>
+          <div class="social mt-6">
+            <a href="https://www.instagram.com/fonoanaluizadavid/" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#instagram"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> Clínica de Fonoaudiologia David LTDA · CNPJ 23.493.533/0001-58</p>
+        <p>Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/5565998682998" aria-label="Conversar no WhatsApp" data-cta="flutuante">
+    <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#whatsapp"/></svg>
+  </a>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
