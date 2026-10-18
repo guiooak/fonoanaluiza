@@ -196,6 +196,10 @@ As sombras são tingidas de navy. Nunca use preto puro.
 - Abaixo de 1024px vira hambúrguer com painel em tela cheia (`.mobile-nav`), onde "Exames" é rótulo de grupo (`.mobile-nav__label`), não link.
 - Marque a página atual com `aria-current="page"` no link.
 
+### Hero
+- `.hero` > `.hero__grid` com `.hero__content` (texto) e `.hero__media` (foto). No desktop, texto à esquerda e foto à direita; no mobile, empilhados.
+- `.hero--media-first` (home): no mobile a foto vem **antes** do título, com altura contida (`min(26rem, 62vh)`) e recorte a partir do topo. As páginas internas não usam o modificador, para o breadcrumb continuar no topo.
+
 ### Breadcrumb (`.breadcrumb`)
 - Só em páginas internas, no topo do `.hero__content`, antes do eyebrow: `Início / Exames / <página>`.
 - `<nav aria-label="Você está em"><ol>…</ol></nav>`; o item atual leva `aria-current="page"`. Acompanha um `BreadcrumbList` no JSON-LD.

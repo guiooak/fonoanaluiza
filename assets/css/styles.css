@@ -757,6 +757,11 @@ a:hover { color: var(--navy-600); }
 .brand__name { display: grid; font-family: var(--font-display); font-size: 1rem; font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
 .brand__name small { font-family: var(--font-body); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-500); }
 .brand:hover { color: var(--navy-800); }
+@media (max-width: 22.5rem) { /* telas muito estreitas: nome da marca em uma linha */
+  .brand { gap: var(--space-2); }
+  .brand img { height: 1.625rem; }
+  .brand__name { font-size: 0.9375rem; white-space: nowrap; }
+}
 .brand--light, .brand--light:hover { color: #fff; }
 .brand--light .brand__name small { color: var(--navy-300); }
 
@@ -921,6 +926,13 @@ a:hover { color: var(--navy-600); }
 .hero { padding-block: var(--space-12) var(--section-y); overflow: hidden; }
 .hero__grid { display: grid; gap: var(--space-12); align-items: center; }
 @media (min-width: 56rem) { .hero__grid { grid-template-columns: 7fr 5fr; gap: var(--space-16); } }
+/* Home no mobile: foto acima do título, com altura contida (recorte a partir do topo) */
+@media (max-width: 55.99rem) {
+  .hero--media-first { padding-top: var(--space-6); }
+  .hero--media-first .hero__grid { gap: var(--space-8); }
+  .hero--media-first .hero__media { order: -1; max-width: 22rem; }
+  .hero--media-first .hero__media img { height: min(26rem, 62vh); width: 100%; object-fit: cover; object-position: top center; }
+}
 .hero__content { display: grid; gap: var(--space-6); }
 .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); margin-top: var(--space-2); }
 
