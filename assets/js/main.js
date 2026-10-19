@@ -36,6 +36,45 @@
     });
   });
 
+  /* Indicador deslizante do menu: uma "pílula" atrás do item ativo, que desliza
+     (posição e largura) quando o ativo muda e aparece/some com fade. */
+  var navList = document.querySelector(".nav__list");
+  var navIndicator = null;
+  function moveNavIndicator() {
+    if (!navIndicator) return;
+    var target = navList.querySelector('.nav__link[aria-current="location"]') ||
+      navList.querySelector('.nav__link.is-active, .nav__link[aria-current="page"]');
+    if (!target || !target.offsetWidth) {
+      navIndicator.classList.remove("is-visible");
+      return;
+    }
+    var listBox = navList.getBoundingClientRect();
+    var box = target.getBoundingClientRect();
+    var set = function () {
+      navIndicator.style.setProperty("--ind-x", (box.left - listBox.left) + "px");
+      navIndicator.style.setProperty("--ind-w", box.width + "px");
+      navIndicator.style.setProperty("--ind-h", box.height + "px");
+    };
+    if (!navIndicator.classList.contains("is-visible")) {
+      /* reaparecendo: posiciona sem deslizar e só então faz o fade */
+      navIndicator.style.transition = "none";
+      set();
+      void navIndicator.offsetWidth;
+      navIndicator.style.transition = "";
+    } else {
+      set();
+    }
+    navIndicator.classList.add("is-visible");
+  }
+  if (navList) {
+    navIndicator = document.createElement("li");
+    navIndicator.className = "nav__indicator";
+    navIndicator.setAttribute("aria-hidden", "true");
+    navList.appendChild(navIndicator);
+    window.addEventListener("resize", moveNavIndicator);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveNavIndicator);
+  }
+
   /* Menu acompanha a rolagem (scrollspy) -------------------------------------
      Cada item com data-spy="id1 id2 ..." fica ativo enquanto essas seções (da
      primeira à última) estão logo abaixo do header. Só vale para links da
@@ -63,6 +102,7 @@
           else item.el.removeAttribute("aria-current");
         }
       });
+      moveNavIndicator();
     };
 
     var updateSpy = function () {
@@ -118,6 +158,8 @@
     });
 
     updateSpy();
+  } else {
+    moveNavIndicator();
   }
 
   /* Menu mobile ------------------------------------------------------------ */
