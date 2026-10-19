@@ -36,6 +36,90 @@
     });
   });
 
+  /* Menu acompanha a rolagem (scrollspy) -------------------------------------
+     Cada item com data-spy="id1 id2 ..." fica ativo enquanto essas seções (da
+     primeira à última) estão logo abaixo do header. Só vale para links da
+     própria página; o item clicado é ativado quando a rolagem termina. */
+  var spyItems = [];
+  document.querySelectorAll("[data-spy]").forEach(function (el) {
+    if (el.tagName === "A") {
+      var url = new URL(el.getAttribute("href"), location.href);
+      if (url.pathname !== location.pathname) return; /* aponta para outra página */
+    }
+    var sections = el.dataset.spy.split(/\s+/).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    if (sections.length) spyItems.push({ el: el, sections: sections });
+  });
+
+  if (spyItems.length) {
+    var spyLocked = false;
+    var spyTimer = null;
+
+    var setActive = function (active) {
+      spyItems.forEach(function (item) {
+        var on = !!active && item.el.dataset.spy === active.el.dataset.spy; /* mesmo item no menu desktop e mobile */
+        item.el.classList.toggle("is-active", on);
+        if (item.el.tagName === "A") {
+          if (on) item.el.setAttribute("aria-current", "location");
+          else item.el.removeAttribute("aria-current");
+        }
+      });
+    };
+
+    var updateSpy = function () {
+      if (spyLocked) return;
+      var line = (header ? header.getBoundingClientRect().bottom : 0) + 8;
+      var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      var active = null;
+      spyItems.forEach(function (item) {
+        var first = item.sections[0].getBoundingClientRect();
+        var last = item.sections[item.sections.length - 1].getBoundingClientRect();
+        if (atBottom) {
+          if (first.top < window.innerHeight) active = item; /* fim da página: último item visível */
+        } else if (first.top <= line && last.bottom > line) {
+          active = item;
+        }
+      });
+      setActive(active);
+    };
+
+    var spyQueued = false;
+    var hasScrollEnd = "onscrollend" in window;
+    var sawScroll = false;
+    var releaseLock = function () { spyLocked = false; clearTimeout(spyTimer); updateSpy(); };
+
+    window.addEventListener("scroll", function () {
+      if (spyLocked) {
+        /* rolagem disparada por clique: só atualiza quando ela terminar */
+        sawScroll = true;
+        if (!hasScrollEnd) {
+          clearTimeout(spyTimer);
+          spyTimer = setTimeout(releaseLock, 300);
+        }
+        return;
+      }
+      if (spyQueued) return;
+      spyQueued = true;
+      requestAnimationFrame(function () { spyQueued = false; updateSpy(); });
+    }, { passive: true });
+    if (hasScrollEnd) window.addEventListener("scrollend", function () { if (spyLocked) releaseLock(); });
+    window.addEventListener("resize", updateSpy);
+
+    spyItems.forEach(function (item) {
+      if (item.el.tagName !== "A") return;
+      item.el.addEventListener("click", function () {
+        spyLocked = true;
+        sawScroll = false;
+        clearTimeout(spyTimer);
+        /* já estava no lugar (nenhuma rolagem começou): libera logo */
+        setTimeout(function () { if (spyLocked && !sawScroll) releaseLock(); }, 300);
+        /* segurança, caso o fim da rolagem não seja detectado */
+        spyTimer = setTimeout(releaseLock, hasScrollEnd ? 2500 : 600);
+      });
+    });
+
+    updateSpy();
+  }
+
   /* Menu mobile ------------------------------------------------------------ */
   var toggle = document.querySelector(".menu-toggle");
   var mobileNav = document.getElementById("mobile-nav");

@@ -92,9 +92,9 @@
       </a>
       <nav class="nav" aria-label="Principal">
         <ul class="nav__list">
-          <li><a class="nav__link" href="./" aria-current="page">Início</a></li>
+          <li><a class="nav__link" href="./#inicio" data-spy="inicio video dado sinais depoimentos">Início</a></li>
           <li class="nav__item--has-menu">
-            <button class="nav__link" type="button" aria-expanded="false" aria-controls="submenu-exames">
+            <button class="nav__link" type="button" aria-expanded="false" aria-controls="submenu-exames" data-spy="exames">
               Exames <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#chevron-down"/></svg>
             </button>
             <ul class="submenu" id="submenu-exames">
@@ -103,10 +103,10 @@
               <li><a href="processamento-auditivo-central/">Processamento Auditivo Central <span>Avaliação do PAC</span></a></li>
             </ul>
           </li>
-          <li><a class="nav__link" href="./#metodo">Método ACC</a></li>
-          <li><a class="nav__link" href="./#sobre">Sobre</a></li>
-          <li><a class="nav__link" href="./#localizacao">Localização</a></li>
-          <li><a class="nav__link" href="./#agendar">Agende consulta</a></li>
+          <li><a class="nav__link" href="./#metodo" data-spy="acc-conecta metodo tratamento">Método ACC</a></li>
+          <li><a class="nav__link" href="./#sobre" data-spy="sobre">Sobre</a></li>
+          <li><a class="nav__link" href="./#localizacao" data-spy="localizacao">Localização</a></li>
+          <li><a class="nav__link" href="./#agendar" data-spy="agendar">Agende consulta</a></li>
         </ul>
       </nav>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
@@ -117,7 +117,7 @@
   </header>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Menu móvel">
     <ul>
-      <li><a href="./">Início</a></li>
+      <li><a href="./#inicio" data-spy="inicio video dado sinais depoimentos">Início</a></li>
       <li><span class="mobile-nav__label">Exames</span>
         <ul class="mobile-nav__sub">
           <li><a href="audiometria/">Audiometria</a></li>
@@ -125,10 +125,10 @@
           <li><a href="processamento-auditivo-central/">Processamento Auditivo Central</a></li>
         </ul>
       </li>
-      <li><a href="./#metodo">Método ACC</a></li>
-      <li><a href="./#sobre">Sobre</a></li>
-      <li><a href="./#localizacao">Localização</a></li>
-      <li><a href="./#agendar">Agende consulta</a></li>
+      <li><a href="./#metodo" data-spy="acc-conecta metodo tratamento">Método ACC</a></li>
+      <li><a href="./#sobre" data-spy="sobre">Sobre</a></li>
+      <li><a href="./#localizacao" data-spy="localizacao">Localização</a></li>
+      <li><a href="./#agendar" data-spy="agendar">Agende consulta</a></li>
     </ul>
   </nav>
 
@@ -186,7 +186,7 @@
     </section>
 
     <!-- ===================== DADO ===================== -->
-    <section class="section section--dark" aria-labelledby="dado-titulo">
+    <section class="section section--dark" id="dado" aria-labelledby="dado-titulo">
       <div class="container">
         <div class="stat" data-reveal>
           <span class="eyebrow" id="dado-titulo">Mãe, preste atenção neste dado!</span>

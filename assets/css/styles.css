@@ -893,6 +893,8 @@ a:hover { color: var(--navy-600); }
   text-transform: uppercase;
   color: var(--ink-500);
 }
+.mobile-nav a.is-active { color: var(--mist-500); }
+.mobile-nav a.is-active::after { content: ""; display: inline-block; width: 6px; height: 6px; margin-left: var(--space-3); border-radius: 50%; background: currentColor; vertical-align: middle; }
 .mobile-nav .mobile-nav__sub a { padding-left: var(--space-6); font-size: var(--step-1); font-weight: 400; }
 
 @media (min-width: 64rem) {
