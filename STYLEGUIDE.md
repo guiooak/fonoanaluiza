@@ -44,7 +44,7 @@ Regras para implementar e manter o site. A referência visual viva é [`stylegui
 
 - **Sora** (300–600): títulos H1–H4, números (`.stat__value`, passos) e citação. **H1 e H2 em peso 500** (refinado em tamanho grande); H3, H4 e títulos de card em 600.
 - **Inter** (400–600): texto, botões, navegação e eyebrow.
-- Carregadas via Google Fonts com `display=swap`.
+- **Hospedadas no próprio site** (`assets/fonts/`, WOFF2 variável, subconjunto latin), com `font-display: swap` e `preload` no `<head>`. Não use Google Fonts: atrasa a renderização e envia o IP do visitante a terceiros.
 
 | Nível | Token | Tamanho (360→1280px) | Uso |
 |---|---|---|---|
@@ -214,7 +214,7 @@ As sombras são tingidas de navy. Nunca use preto puro.
 
 ## 8. Estrutura das páginas
 
-**Home:** hero (`h1`) → `.strip` → vídeo + Método ACC → `.stat` (navy) → sintomas (`.grid` de `.card`) → depoimentos (navy, `.rail`) → ACC Conecta (`.split`) → o que o ACC faz (`.checklist`) → passos (`.steps`) → diferenciais (`.grid--3` de `.card--flat`) → avaliações do Google (`.reviews`) → sobre a Dra. (`#sobre`, `.split` + `.cutout`) → FAQ → localização (`#localizacao`) → `.cta-block` → rodapé.
+**Home:** hero (`h1`) → `.strip` → vídeo + Método ACC → `.stat` (navy) → sintomas (`.grid` de `.card`) → depoimentos (navy, `.rail`) → ACC Conecta (`.split`) → o que o ACC faz (`.checklist`) → passos (`.steps`) → exames (`#exames`, `.grid--3` de `.card--interactive` ligando às 3 páginas) → diferenciais (`.grid--3` de `.card--flat`) → avaliações do Google (`.reviews`) → sobre a Dra. (`#sobre`, `.split` + `.cutout`) → FAQ → localização (`#localizacao`) → `.cta-block` → rodapé.
 
 **Páginas de exame** (`/audiometria/`, `/imitanciometria/`, `/processamento-auditivo-central/`): hero (breadcrumb + `h1` com a pergunta original + foto) → `.strip` → indicações (`.checklist` em card) → [audiometria: crianças] → importância → como é feito (`.def-list` ou `.steps`) → [o que o exame revela] → `.cta-block` `#agendar` → 3 avaliações + link para todas → resumo da Dra. (navy, link para `/#sobre`) → outros exames (`.grid--3` de `.card--interactive`) → localização → rodapé. Fundos claros alternam sand-50/sand-100 automaticamente.
 
